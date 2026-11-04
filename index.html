@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="MGT ’27 execution plan by BRENSH for Mindspace Business Parks REIT: phases, participant journey, audition-day operations and delivery plan.">
+<meta name="description" content="MGT ’27 execution plan by BRENSH for Mindspace Business Parks REIT: end-to-end delivery from registrations and auditions to both finale nights, with a week-by-week plan.">
 <title>MGT ’27 Field Plan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -359,6 +359,20 @@ details.fold[open] summary::after { content: "–"; }
 .seg { max-width: 100%; flex-wrap: wrap; }
 @media (max-width: 520px) { .seg { border-radius: 18px; } .seg button { padding: 7px 12px; } }
 @media (max-width: 520px) { .phase-card h3 { font-size: 30px; } }
+#finale table.t th { color: var(--fg-dim); border-bottom-color: var(--rule-d); }
+#finale table.t td { border-bottom-color: var(--rule-d); }
+#finale table.t td:first-child { font-family: var(--f-display); font-weight: 600; font-size: 19px; color: var(--gold); font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
+#finale table.t tr.peak td { color: var(--fg); }
+#finale table.t tr.peak td:nth-child(2) { font-weight: 600; }
+#ros td:nth-child(3) { color: var(--fg-dim); font-size: 14px; }
+#cap td:first-child { font-family: var(--f-body) !important; font-size: 15px !important; font-weight: 500 !important; color: var(--fg) !important; }
+.build { margin: 0; display: grid; gap: 0; }
+.build div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--rule-d); }
+.build dt { font-family: var(--f-display); font-weight: 600; font-size: 20px; color: var(--gold); }
+.build dd { margin: 0; font-size: 14.5px; color: var(--fg-dim); }
+.safe { border-top: 1px solid var(--gold); padding-top: 14px; }
+.safe h4 { margin: 0 0 8px; font-family: var(--f-display); font-weight: 600; font-size: 24px; }
+.safe ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14.5px; color: var(--fg-dim); }
 /* ---------- premium finish ---------- */
 h2.sec, h3.sub, .hero h1, .phase-card h3, .step-detail h4, .beats h4, .week h4, .scope h4 { text-transform: none; font-weight: 500; letter-spacing: -.01em; }
 h2.sec { line-height: 1.02; font-size: clamp(46px, 6.2vw, 82px); max-width: 18ch; }
@@ -398,9 +412,9 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
     <a href="#window"><b>200 ft</b>Registrations</a>
     <a href="#ground"><b>Ground</b>Audition days</a>
     <a href="#judging"><b>Desk</b>Judging</a>
-    <a href="#bridge"><b>Hand-off</b>Finalists</a>
+    <a href="#bridge"><b>Bridge</b>Finalists</a>
     <a href="#buzz"><b>Phase 2</b>Buzz</a>
-    <a href="#finale"><b>Phase 3</b>Event partner</a>
+    <a href="#finale"><b>Phase 3</b>Finale nights</a>
     <a href="#delivery"><b>Delivery</b>Week by week</a>
   </div>
 </nav>
@@ -412,9 +426,9 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="sticker">Execution plan · Prepared by BRENSH</span>
+        <span class="sticker">End-to-end execution · BRENSH</span>
         <h1>Mindspace <span>Got Talent ’27</span></h1>
-        <p class="lede">How BRENSH will bring the college fest back to two Mindspace business parks. Start with the bird’s-eye view of both parks, then descend to the audition floor: who owns what, when it happens, and what BRENSH delivers at every step.</p>
+        <p class="lede">How BRENSH will bring the college fest back to two Mindspace business parks, end to end: from the first registration to the last song on finale night. Start with the bird’s-eye view of both parks, then descend to the audition floor and the finale stage.</p>
         <div class="agency"><b>BRENSH</b>for Mindspace Business Parks REIT</div>
         <div class="stats" id="stats">
           <div><b data-to="2">2</b><span>parks, one format</span></div>
@@ -457,19 +471,19 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
 <section class="band paper" id="phases">
   <div class="wrap">
     <div class="alt-tag"><i>10,000 ft</i> The phases</div>
-    <h2 class="sec">Five phases, one signed hand-over</h2>
-    <p class="lede">BRENSH sets the programme up with Mindspace, then owns the participant journey from the first registration to signed finalists. Mindspace’s marketing team runs the buzz on content BRENSH supplies. An event partner appointed by Mindspace produces the finales from BRENSH’s hand-over on 30 Dec. Tap any bar for details.</p>
+    <h2 class="sec">Five phases, one team end to end</h2>
+    <p class="lede">BRENSH sets the programme up with Mindspace, then runs all of it: registrations, auditions, finalists, both finale nights and the report. Mindspace’s marketing team runs the buzz on content BRENSH supplies, and one Mindspace approver signs off each gate. Tap any bar for details.</p>
     <div class="gantt" role="region" aria-label="Phase timeline" tabindex="0"><div class="gantt-inner" id="gantt"></div></div>
     <div class="phase-card" id="phaseCard" aria-live="polite"></div>
     <div class="verdict">
       <div><b>Set-up comes first</b><p>Rules, platform and consent text are signed off before registrations open on 25 Nov.</p></div>
-      <div><b>The event partner starts now</b><p>Artist holds, permits filed by 18 Dec and a certified stage roof mean the partner is appointed by 27 Nov.</p></div>
-      <div><b>A signed hand-over, not a loose end</b><p>BRENSH collects tracks, tech sheets and consents before Christmas and hands them over signed on 30 Dec.</p></div>
+      <div><b>Finale production starts now</b><p>Headline act holds, permits filed by 18 Dec and a certified stage roof mean BRENSH plans the finales alongside registrations, from the week of award.</p></div>
+      <div><b>No hand-over gap</b><p>The team that auditions every act also stages the finale. Tracks, tech sheets and consents gathered before Christmas go straight into BRENSH’s run of show.</p></div>
     </div>
     <div class="scope">
-      <div class="s-b"><h4>BRENSH delivers</h4><ul><li>Rules, FAQ and consent drafts</li><li>Registration system, database and helpdesk</li><li>Audition zones, AV, judges and recording at both parks</li><li>Scoring, shortlist and results</li><li>Finalist confirmations and the signed hand-over pack</li><li>Daily data and audition content for Mindspace marketing</li></ul></div>
-      <div class="s-m"><h4>Mindspace owns</h4><ul><li>Approvals, with one approver and a 48-hour turnaround</li><li>Campaign, branding and social (Phase 2)</li><li>Facility access, power and security at each park</li><li>Prizes and recognition</li><li>Appointing the event partner and a show lead</li></ul></div>
-      <div class="s-p"><h4>Event partner delivers</h4><ul><li>Finale stage, sound, light and power</li><li>Rehearsals and show calling from BRENSH’s pack</li><li>Headline act, emcee and finale judges</li><li>Audience entry, safety and permits</li><li>Coverage and the post-event report</li></ul></div>
+      <div class="s-b"><h4>BRENSH · the participants</h4><ul><li>Rules, FAQ and consent drafts</li><li>Registration system, database and helpdesk</li><li>Audition zones, AV, judges and recording at both parks</li><li>Scoring, shortlist and results</li><li>Finalist confirmations and show packs</li><li>Daily data and content for Mindspace marketing</li></ul></div>
+      <div class="s-p"><h4>BRENSH · the finale nights</h4><ul><li>Stage, roof, LED, sound, lights, backline and power</li><li>Headline act, emcee, finale judges and trophies</li><li>Rehearsals, run of show and show calling</li><li>Wristbands, entry, security, medical and the crowd plan</li><li>Permits and music licences in both cities</li><li>Coverage, aftermovie and the report in 7 working days</li></ul></div>
+      <div class="s-m"><h4>Mindspace owns</h4><ul><li>Approvals, with one approver and a 48-hour turnaround</li><li>Campaign, branding and social (Phase 2)</li><li>Facility access and security liaison at each park</li><li>Prizes and recognition</li><li>A named show lead who signs off each gate</li></ul></div>
     </div>
   </div>
 </section>
@@ -478,16 +492,16 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
 <section class="band" id="handoffs">
   <div class="wrap">
     <div class="alt-tag"><i>5,000 ft</i> Who hands what</div>
-    <h2 class="sec">BRENSH’s phase feeds the other two</h2>
-    <p class="lede">Mindspace marketing brings people to the form. BRENSH sends back counts, footage and finalist stories. On 30 Dec BRENSH hands the event partner a signed pack. One Mindspace approver signs off across all three.</p>
+    <h2 class="sec">BRENSH runs the show; marketing fills it</h2>
+    <p class="lede">Mindspace marketing brings people to the form and the crowd to the finale. BRENSH sends back counts, footage and finalist stories, and carries every finalist from the audition floor to the finale stage itself. One Mindspace approver signs off across all three phases.</p>
     <div class="block two">
-      <svg class="flowmap" id="flowmap" viewBox="0 0 640 400" role="img" aria-label="Hand-offs between BRENSH, Mindspace marketing, the event partner and the Mindspace approver"></svg>
+      <svg class="flowmap" id="flowmap" viewBox="0 0 640 400" role="img" aria-label="Hand-offs between BRENSH’s auditions and finale teams, Mindspace marketing and the Mindspace approver"></svg>
       <div>
         <div class="seg" role="group" aria-label="Filter hand-offs">
           <button type="button" data-x="all" aria-pressed="true">All</button>
           <button type="button" data-x="1to2" aria-pressed="false">BRENSH → Marketing</button>
           <button type="button" data-x="2to1" aria-pressed="false">Marketing → BRENSH</button>
-          <button type="button" data-x="1to3" aria-pressed="false">BRENSH → Event partner</button>
+          <button type="button" data-x="1to3" aria-pressed="false">Auditions → Finale</button>
         </div>
         <div class="xfer" id="xfer"></div>
       </div>
@@ -500,7 +514,7 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
   <div class="wrap">
     <div class="alt-tag"><i>1,000 ft</i> Phase 1 · run by BRENSH</div>
     <h2 class="sec">685 acts in. 50 finalists out.</h2>
-    <p class="lede">BRENSH’s phase succeeds when 25 confirmed finalist acts per park reach the event partner with consent, final track, tech sheet and contacts. Everything below works back from that.</p>
+    <p class="lede">BRENSH’s phase succeeds when 25 confirmed finalist acts per park are locked into BRENSH’s finale run of show with consent, final track, tech sheet and contacts. Everything below works back from that.</p>
     <div class="block">
       <div class="seg" role="group" aria-label="Choose park">
         <button type="button" data-park="both" aria-pressed="true">Both parks</button>
@@ -705,9 +719,9 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
 <!-- ============ FINALIST BRIDGE ============ -->
 <section class="band gold" id="bridge">
   <div class="wrap">
-    <div class="alt-tag"><i>Hand-off</i> The finalist bridge</div>
+    <div class="alt-tag"><i>Bridge</i> Auditions to finale</div>
     <h2 class="sec">Everything in before Christmas</h2>
-    <p class="lede">BRENSH collects everything from finalists and reserves by 24 Dec, then hands the event partner a signed pack on 30 Dec. After that, the partner’s stage manager takes over finalist messages on the same WhatsApp number.</p>
+    <p class="lede">BRENSH collects everything from finalists and reserves by 24 Dec and locks the show pack on 30 Dec. The same coordinators and the same WhatsApp number carry every act through rehearsal to the finale stage.</p>
     <div class="block two">
       <ol class="timeline" id="bridgeTl"></ol>
       <div>
@@ -716,7 +730,7 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
       </div>
     </div>
     <div class="block">
-      <h3 class="sub">The hand-over pack</h3>
+      <h3 class="sub">The finalist show pack</h3>
       <div class="three" id="handover" style="margin-top:6px"></div>
     </div>
   </div>
@@ -746,31 +760,29 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
 <!-- ============ PHASE 3 FINALE ============ -->
 <section class="band" id="finale">
   <div class="wrap">
-    <div class="alt-tag"><i>Phase 3</i> Finale and concert · event partner</div>
-    <h2 class="sec">Our advice: pick on proof</h2>
-    <p class="lede">BRENSH recommends one lead event partner for both cities, appointed by 27 Nov, and a Mindspace show lead for Phase 3. BRENSH’s role in the finale ends with the signed hand-over on 30 Dec.</p>
+    <div class="alt-tag"><i>Phase 3</i> Finale and concert · produced by BRENSH</div>
+    <h2 class="sec">Two finale nights, one crew</h2>
+    <p class="lede">BRENSH produces both finales itself. The crew that ran the auditions builds the stage, books the headline act, calls the show and hands each park back the next morning. Madhapur on Thu 7 Jan, Airoli East on Wed 13 Jan, same show at both.</p>
     <div class="block two">
-      <div>
-        <h3 class="sub" style="margin-bottom:12px">Scorecard</h3>
-        <div id="scorecard"></div>
-        <p class="note" style="margin-top:12px">Public staff ratings describe employees, not clients, so two client reference calls per bidder carry the weight.</p>
+      <div class="tablewrap">
+        <h3 class="sub" style="margin-bottom:12px">Run of show</h3>
+        <table class="t" id="ros"><thead><tr><th style="width:68px">Time</th><th>Segment</th><th>Why it sits here</th></tr></thead><tbody></tbody></table>
+        <p class="note" style="margin-top:12px">Day before: tech rehearsal and a 20-minute slot per finalist. Egress complete by 22:30.</p>
       </div>
       <div>
-        <h3 class="sub" style="margin-bottom:12px">Event partner scope</h3>
-        <ul style="display:grid;gap:8px;padding-left:18px;margin:0;color:var(--fg-dim)">
-          <li>Stage, roof, LED, sound, lights, backline and power at both parks</li>
-          <li>Run of show, rehearsals from BRENSH’s hand-over pack, show calling</li>
-          <li>Emcee, finale judges, trophies, the winner moment</li>
-          <li>Headline act booking, riders, travel and hospitality</li>
-          <li>Audience wristband sign-ups by company, entry scans</li>
-          <li>Security, medical, fire safety and the crowd plan</li>
-          <li>Permits: police and loudspeaker, fire, electrical, performance and music licences</li>
-          <li>Coverage, aftermovie and the report within 7 working days</li>
-        </ul>
+        <h3 class="sub" style="margin-bottom:12px">What BRENSH builds at each park</h3>
+        <dl class="build" id="build"></dl>
+        <h3 class="sub" style="margin:28px 0 12px">Capacity and exits</h3>
+        <table class="t" id="cap"><thead><tr><th>Per park</th><th>Airoli East</th><th>Madhapur</th></tr></thead><tbody></tbody></table>
+        <p class="note" style="margin-top:10px">0.5 m² per standing guest; exits clear the arena in 8 minutes, plus 50%. Wristbands are issued by company, never beyond certified capacity.</p>
       </div>
     </div>
     <div class="block">
-      <h3 class="sub">Gates the Mindspace show lead checks</h3>
+      <h3 class="sub">Safety and permissions</h3>
+      <div class="three" id="safety"></div>
+    </div>
+    <div class="block">
+      <h3 class="sub">Gates BRENSH reports to the Mindspace show lead</h3>
       <div class="gates" id="gates"></div>
     </div>
   </div>
@@ -781,7 +793,7 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
   <div class="wrap">
     <div class="alt-tag"><i>Delivery</i> Week by week</div>
     <h2 class="sec">What happens, and who does it</h2>
-    <p class="lede">From this week to the signed finalist hand-over. Every line names its owner: BRENSH, Mindspace, or both together. Weeks are marked done, current or upcoming against today’s date.</p>
+    <p class="lede">From this week to the second finale and the report. Every line names its owner: BRENSH, Mindspace, or both together. Weeks are marked done, current or upcoming against today’s date.</p>
     <div class="countdowns" id="countdowns"></div>
     <div class="listhead">
       <div class="seg" role="group" aria-label="Filter by owner">
@@ -848,21 +860,21 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
   function fmt(d) { var m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]; return +d.slice(8) + " " + m[+d.slice(5, 7) - 1]; }
   var PHASES = [
     { id: "p0", name: "Phase 0 · Set-up", start: "2026-11-05", end: "2026-11-24", owner: "BRENSH + Mindspace", role: "Leads the set-up", mine: false,
-      what: ["Award and go decision", "Rules, consent text and Office Cup points approved", "Tool stack chosen and backend builder hired", "Recces at both parks", "Event partner brief issued by Mindspace"] },
+      what: ["Award and go decision", "Rules, consent text and Office Cup points approved", "Tool stack chosen and backend builder hired", "Recces at both parks", "Finale design and headline act approved 27 Nov"] },
     { id: "reg", name: "Phase 1 · Registrations", start: "2026-11-25", end: "2026-12-06", owner: "BRENSH", role: "Delivers end to end", mine: true,
       what: ["Microsite live 25 Nov, 09:00", "Daily 18:00 snapshot to Mindspace", "Health check 1 Dec; extend to 6 Dec if under 60% of pace", "Slot booking 5–6 Dec"] },
     { id: "aud", name: "Phase 1 · Auditions", start: "2026-12-08", end: "2026-12-15", owner: "BRENSH", role: "Delivers end to end", mine: true,
       what: ["Airoli East 8–11 Dec, Madhapur 8–15 Dec", "Two windows a day: lunch and after work", "Scores locked and audited nightly", "Footage to Mindspace marketing every evening"] },
     { id: "bridge", name: "Phase 1 · Finalist bridge", start: "2026-12-18", end: "2026-12-30", owner: "BRENSH", role: "Delivers end to end", mine: true,
-      what: ["Results 18 Dec; confirmations by 21 Dec", "Reserves promoted 22 Dec", "Finalist packs due 24 Dec", "Hand-over signed 30 Dec"] },
+      what: ["Results 18 Dec; confirmations by 21 Dec", "Reserves promoted 22 Dec", "Finalist packs due 24 Dec", "Show pack locked 30 Dec"] },
     { id: "p2", name: "Phase 2 · Buzz", start: "2026-11-18", end: "2027-01-31", owner: "Mindspace marketing", role: "Supplies data and content", mine: false,
       what: ["Tease from 18 Nov, launch 25 Nov", "Office Cup board on campus screens", "Audition reels and finalist stories", "Finale promotion and aftermovie"] },
-    { id: "p3a", name: "Phase 3 · Partner planning", start: "2026-11-27", end: "2027-01-03", owner: "Event partner", role: "Hand-over only", mine: false,
-      what: ["Appointed by 27 Nov", "Artist contract by 4 Dec", "Renders and safety plan approved 11 Dec", "Permits filed by 18 Dec"] },
-    { id: "p3b", name: "Phase 3 · Builds and shows", start: "2027-01-04", end: "2027-01-13", owner: "Event partner", role: "Hand-over only", mine: false,
-      what: ["Madhapur build 4–6 Jan, finale Thu 7 Jan", "Airoli East build 10–12 Jan, finale Wed 13 Jan", "Certificates in hand before each show"] },
-    { id: "p4", name: "Phase 4 · Close-out", start: "2027-01-14", end: "2027-01-29", owner: "Mindspace + event partner", role: "Participant data close-out", mine: false,
-      what: ["Report within 7 working days (by 22 Jan)", "Prize payouts and certificates", "BRENSH: audition numbers for the report; participant data deleted by 13 Apr"] }
+    { id: "p3a", name: "Phase 3 · Finale production", start: "2026-11-27", end: "2027-01-03", owner: "BRENSH", role: "Delivers end to end", mine: true,
+      what: ["Finale design and headline act approved 27 Nov", "Artist contract by 4 Dec", "Renders, site and safety plans approved 11 Dec", "Permits and music licences filed by 18 Dec"] },
+    { id: "p3b", name: "Phase 3 · Builds and shows", start: "2027-01-04", end: "2027-01-14", owner: "BRENSH", role: "Delivers end to end", mine: true,
+      what: ["Madhapur build 4–5 Jan, rehearsal 6 Jan, finale Thu 7 Jan", "Airoli East build 10–11 Jan, rehearsal 12 Jan, finale Wed 13 Jan", "Structure and electrical certificates in hand before each show", "Load-out and the park handed back the next morning"] },
+    { id: "p4", name: "Phase 4 · Close-out", start: "2027-01-15", end: "2027-01-29", owner: "BRENSH + Mindspace", role: "Delivers the report", mine: false,
+      what: ["BRENSH report within 7 working days (by 22 Jan): numbers, coverage, aftermovie", "Mindspace: prize payouts and certificates", "Participant data deleted by 13 Apr, confirmed in writing"] }
   ];
   (function gantt() {
     var g = $("#gantt");
@@ -878,7 +890,7 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
       var bar = el("div", { class: "g-bar" + (p.mine ? " mine" : ""), role: "button", tabindex: "0", "aria-label": p.name + ", " + fmt(p.start) + " to " + fmt(p.end) });
       bar.style.left = pct(p.start) + "%"; bar.style.width = Math.max(1.4, pct(p.end) - pct(p.start)) + "%";
       tr.appendChild(bar);
-      if (p.id === "bridge") { var dia = el("div", { class: "g-dia", title: "Hand-over 30 Dec" }); dia.style.left = pct("2026-12-30") + "%"; tr.appendChild(dia); }
+      if (p.id === "bridge") { var dia = el("div", { class: "g-dia", title: "Show pack locked 30 Dec" }); dia.style.left = pct("2026-12-30") + "%"; tr.appendChild(dia); }
       function sel() { $$(".g-bar", g).forEach(function (b) { b.classList.remove("sel"); }); bar.classList.add("sel"); showPhase(p); }
       nm.addEventListener("click", sel); bar.addEventListener("click", sel);
       bar.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sel(); } });
@@ -910,9 +922,12 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
     { k: "1to2", what: "Five standout act IDs per audition day", when: "daily 8–15 Dec" },
     { k: "1to2", what: "Finalist list", when: "18 Dec, 10:00" },
     { k: "1to2", what: "Finalist bios, photos and shoot availability", when: "21–24 Dec" },
-    { k: "1to3", what: "Signed hand-over pack: roster, act folders, reserves, rehearsal draft, Office Cup standings", when: "30 Dec" }
+    { k: "1to2", what: "Headliner reveal assets and the company wristband sign-up link", when: "18 Dec" },
+    { k: "2to1", what: "Finale campaign artwork for the entry arch and stage branding", when: "by 18 Dec" },
+    { k: "1to3", what: "Show pack locked: roster, act folders, reserves, rehearsal schedule, Office Cup standings. BRENSH’s finale crew takes it straight into the run of show", when: "30 Dec" },
+    { k: "1to2", what: "Finale photos and reels the same night; aftermovie and report", when: "by 22 Jan" }
   ];
-  var DIRL = { "1to2": "BRENSH → Marketing", "2to1": "Marketing → BRENSH", "1to3": "BRENSH → Event partner" };
+  var DIRL = { "1to2": "BRENSH → Marketing", "2to1": "Marketing → BRENSH", "1to3": "Auditions → Finale" };
   function renderXfer(f) {
     var x = $("#xfer"); x.innerHTML = "";
     XFER.filter(function (r) { return f === "all" || r.k === f; }).forEach(function (r) {
@@ -927,12 +942,12 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
       // nodes
       "<g class='node' data-x='1to2'><rect class='box' x='220' y='150' width='200' height='100' rx='6' fill='rgba(110,34,51,.35)' stroke='#D8B4A0' stroke-width='2'/><text x='320' y='190' text-anchor='middle' fill='#F3EEE5' font-size='22' font-family='Cormorant Garamond, Garamond, serif' letter-spacing='.5'>PHASE 1 · BRENSH</text><text x='320' y='214' text-anchor='middle' fill='#E9D9CF' font-size='13'>participants, auditions,</text><text x='320' y='231' text-anchor='middle' fill='#E9D9CF' font-size='13'>finalists</text></g>" +
       "<g class='node' data-x='2to1'><rect class='box' x='20' y='20' width='190' height='86' rx='6' fill='none' stroke='#F3EEE5' stroke-opacity='.5' stroke-width='1.5'/><text x='115' y='56' text-anchor='middle' fill='#F3EEE5' font-size='19' font-family='Cormorant Garamond, Garamond, serif' letter-spacing='.5'>PHASE 2 · BUZZ</text><text x='115' y='80' text-anchor='middle' fill='#A9B0BC' font-size='13'>Mindspace marketing</text></g>" +
-      "<g class='node' data-x='1to3'><rect class='box' x='430' y='20' width='190' height='86' rx='6' fill='none' stroke='#F3EEE5' stroke-opacity='.5' stroke-width='1.5'/><text x='525' y='56' text-anchor='middle' fill='#F3EEE5' font-size='19' font-family='Cormorant Garamond, Garamond, serif' letter-spacing='.5'>PHASE 3 · FINALE</text><text x='525' y='80' text-anchor='middle' fill='#A9B0BC' font-size='13'>event partner</text></g>" +
+      "<g class='node' data-x='1to3'><rect class='box' x='430' y='20' width='190' height='86' rx='6' fill='rgba(110,34,51,.35)' stroke='#D8B4A0' stroke-width='2'/><text x='525' y='56' text-anchor='middle' fill='#F3EEE5' font-size='19' font-family='Cormorant Garamond, Garamond, serif' letter-spacing='.5'>PHASE 3 · FINALE</text><text x='525' y='80' text-anchor='middle' fill='#A9B0BC' font-size='13' style='fill:#E9D9CF'>BRENSH production</text></g>" +
       "<g class='node' data-x='all'><rect class='box' x='220' y='310' width='200' height='70' rx='6' fill='none' stroke='#C9A96E' stroke-width='1.5' stroke-dasharray='5 5'/><text x='320' y='340' text-anchor='middle' fill='#C9A96E' font-size='16' font-weight='700'>Mindspace approver</text><text x='320' y='360' text-anchor='middle' fill='#A9B0BC' font-size='13'>48-hour sign-offs</text></g>" +
       // links
       "<g class='lnk' data-k='2to1'><path d='M115 106 V 180 H 214' fill='none' stroke='#D8B4A0' stroke-width='2' marker-end='url(#ahv)'/><text x='28' y='150' fill='#D8B4A0' font-size='13'>brand kit,</text><text x='28' y='166' fill='#D8B4A0' font-size='13'>signage art</text></g>" +
       "<g class='lnk' data-k='1to2'><path d='M250 150 V 66 H 216' fill='none' stroke='#C9A96E' stroke-width='2' marker-end='url(#ah)'/><text x='258' y='92' fill='#C9A96E' font-size='13'>counts, footage,</text><text x='258' y='108' fill='#C9A96E' font-size='13'>finalist stories</text></g>" +
-      "<g class='lnk' data-k='1to3'><path d='M420 200 H 525 V 112' fill='none' stroke='#C9A96E' stroke-width='2.5' marker-end='url(#ah)'/><text x='434' y='226' fill='#C9A96E' font-size='13'>signed pack,</text><text x='434' y='242' fill='#C9A96E' font-size='13'>30 Dec</text></g>" +
+      "<g class='lnk' data-k='1to3'><path d='M420 200 H 525 V 112' fill='none' stroke='#C9A96E' stroke-width='2.5' marker-end='url(#ah)'/><text x='434' y='226' fill='#C9A96E' font-size='13'>show pack,</text><text x='434' y='242' fill='#C9A96E' font-size='13'>30 Dec</text></g>" +
       "<g class='lnk' data-k='all'><path d='M320 306 V 256' fill='none' stroke='#C9A96E' stroke-width='1.5' stroke-dasharray='4 4'/></g>";
     $$(".node", s).forEach(function (n) { n.addEventListener("click", function () { var b = $("#handoffs .seg button[data-x='" + n.dataset.x + "']"); if (b) b.click(); }); });
     $$("#handoffs .seg button").forEach(function (b) { b.addEventListener("click", function () { pressGroup(b.parentNode, b); renderXfer(b.dataset.x); }); });
@@ -966,7 +981,7 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
     ["Score", "3 judges, tablets", "Judges", "Scoring form", "—", "Weighted rubric out of 100 per judge; average of three. Locked at 20:30 each night."],
     ["Shortlist", "top 8 to top 5", "Judges + BRENSH", "Dashboard", "—", "Review call 16–17 Dec on places 4–10; sign-off by three judges, BRENSH and the Mindspace approver."],
     ["Results", "18 Dec, 10:00", "BRENSH", "WhatsApp + email", "10 · Finalist, 11 · Reserve, 12 · Thank you for auditioning", "Personal messages first; Mindspace goes public at 12:00."],
-    ["Finalist pack", "by 24 Dec", "Finalists", "Pack form", "—", "Track, cue sheet, tech sheet, props, members, emergency contacts, bio and photo. Handed to the event partner on 30 Dec."]
+    ["Finalist pack", "by 24 Dec", "Finalists", "Pack form", "—", "Track, cue sheet, tech sheet, props, members, emergency contacts, bio and photo. Locked into the finale run of show on 30 Dec."]
   ];
   (function steps() {
     var g = $("#steps");
@@ -987,7 +1002,7 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
     var s = $("#arch");
     var parts = [
       ["Registration form", "mobile, 3 languages", 20, 20], ["Slot booking", "after verification", 20, 120], ["QR check-in", "phone scanner", 20, 220], ["Track upload", "named by act ID", 20, 320],
-      ["WhatsApp provider", "12 approved templates", 380, 20], ["Scoring form", "tablets, locked nightly", 380, 120], ["Live dashboard", "BRENSH + Mindspace", 380, 220], ["Hand-over export", "finalist pack, 30 Dec", 380, 320]
+      ["WhatsApp provider", "12 approved templates", 380, 20], ["Scoring form", "tablets, locked nightly", 380, 120], ["Live dashboard", "BRENSH + Mindspace", 380, 220], ["Show pack export", "run of show, 30 Dec", 380, 320]
     ];
     var h = "<defs><marker id='aa' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M0 0L10 5L0 10z' fill='#4E5562'/></marker></defs>";
     h += "<rect x='210' y='130' width='140' height='170' rx='6' fill='#6E2233'/><text x='280' y='196' text-anchor='middle' fill='#fff' font-family='Cormorant Garamond, Garamond, serif' font-size='24' letter-spacing='.5'>ONE</text><text x='280' y='222' text-anchor='middle' fill='#fff' font-family='Cormorant Garamond, Garamond, serif' font-size='24' letter-spacing='.5'>DATABASE</text><text x='280' y='248' text-anchor='middle' fill='#E9D9CF' font-size='12.5'>acts · people · slots</text><text x='280' y='265' text-anchor='middle' fill='#E9D9CF' font-size='12.5'>scores · messages</text>";
@@ -1142,10 +1157,10 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
   })();
 
   /* ---------- bridge ---------- */
-  var BR = [["Fri 18 Dec", "Results sent; coordinators phone every finalist lead by 19 Dec."], ["21–23 Dec", "Mindspace marketing shoots finalist stories, one day per park, with BRENSH scheduling."], ["Mon 21 Dec", "Finalists confirm availability and final members by 18:00."], ["Tue 22 Dec", "Unconfirmed finalists replaced by the first reserve."], ["Thu 24 Dec", "Finalist and reserve packs due."], ["Mon 28 Dec", "Rehearsal slots from the event partner’s draft sent to finalists."], ["Wed 30 Dec", "Hand-over meeting; pack signed by the event partner and Mindspace."]];
+  var BR = [["Fri 18 Dec", "Results sent; coordinators phone every finalist lead by 19 Dec."], ["21–23 Dec", "Mindspace marketing shoots finalist stories, one day per park, with BRENSH scheduling."], ["Mon 21 Dec", "Finalists confirm availability and final members by 18:00."], ["Tue 22 Dec", "Unconfirmed finalists replaced by the first reserve."], ["Thu 24 Dec", "Finalist and reserve packs due."], ["Mon 28 Dec", "Rehearsal slots from BRENSH’s run of show sent to finalists."], ["Wed 30 Dec", "Show pack locked; running order signed off by the Mindspace show lead."], ["6 & 12 Jan", "Tech rehearsal at each park, 20 minutes per act, the day before its finale."]];
   $("#bridgeTl").innerHTML = BR.map(function (b) { return "<li><b>" + b[0] + "</b><span>" + b[1] + "</span></li>"; }).join("");
-  var HO = [["Finalist roster", "Act ID, category, act name, members, company, lead contact, status."], ["One folder per act", "Track, cue sheet, tech sheet, props, contacts, bio and photo."], ["Reserves", "Two per category with complete folders, ready to step in."], ["Rehearsal draft", "20 minutes per act on the day before the finale, in run-of-show order."], ["Judging kit", "Audition panel contacts, rubric, sign-off format."], ["Office Cup standings", "Points after auditions, for the finale leaderboard."], ["Open issues", "Special needs, extra mics, access requirements, agreed exceptions."], ["Comms hand-off", "The event partner’s stage manager takes over on the same WhatsApp number."]];
-  $("#handover").innerHTML = HO.map(function (h, i) { return "<div style='border-top:2px solid var(--ink);padding-top:12px'><b style='font-family:var(--f-display);font-weight:400;font-size:22px;text-transform:uppercase'>" + (i + 1) + ". " + h[0] + "</b><p style='font-size:15px;color:var(--ink-dim);margin-top:4px'>" + h[1] + "</p></div>"; }).join("");
+  var HO = [["Finalist roster", "Act ID, category, act name, members, company, lead contact, status."], ["One folder per act", "Track, cue sheet, tech sheet, props, contacts, bio and photo."], ["Reserves", "Two per category with complete folders, ready to step in."], ["Rehearsal schedule", "20 minutes per act on the day before each finale, in run-of-show order."], ["Finale judging", "Finale panel briefed on the audition rubric; sign-off format."], ["Office Cup standings", "Points after auditions, for the finale leaderboard."], ["Open issues", "Special needs, extra mics, access requirements, agreed exceptions."], ["One line to every act", "The same coordinators and WhatsApp number from registration to finale night."]];
+  $("#handover").innerHTML = HO.map(function (h, i) { return "<div style='border-top:2px solid var(--ink);padding-top:12px'><b style='font-family:var(--f-display);font-weight:600;font-size:24px'>" + (i + 1) + ". " + h[0] + "</b><p style='font-size:15px;color:var(--ink-dim);margin-top:4px'>" + h[1] + "</p></div>"; }).join("");
 
   /* ---------- buzz ---------- */
   var BEATS = [["Tease", "18–24 Nov", "“Remember the college fest?” posters with no details; a throwback-photo prompt."], ["Launch", "25 Nov–4 Dec", "Launch push, daily Office Cup board, champion kits, category pushes, food-court sign-up desks."], ["Auditions", "8–15 Dec", "Same-day reels from the zone, an act of the day, live Office Cup points."], ["Finale", "18 Dec–13 Jan", "Finalist reveal and stories, headliner reveal, company wristband sign-ups, countdown."], ["After", "14 Jan–Feb", "Winner stories, aftermovie, photo albums, a tease for MGT ’28."]];
@@ -1155,14 +1170,20 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
   var ID = [["“My college fest” throwbacks", "Employees post an old fest photo; the best get reshared."], ["Desk to Stage", "Short finalist profiles: day job versus talent."], ["Office Cup standings", "Daily rivalry posts naming the top companies."], ["Judges’ pick", "One standout audition moment a day."], ["Leaders’ cheer", "Tenant leaders back their teams on video."], ["Rehearsal diaries", "Crews practising in their offices before the finale."]];
   $("#ideas").innerHTML = ID.map(function (i) { return "<div class='idea'><b>" + i[0] + "</b><p>" + i[1] + "</p></div>"; }).join("");
 
-  /* ---------- vendor ---------- */
-  var SC = [["Comparable shows", 25, "Two or more 5,000+ concerts in 24 months; two reference calls"], ["Safety and permissions", 20, "Sample safety plan; permits in Navi Mumbai and Cyberabad"], ["Headline act access", 15, "Written availability holds for 7 and 13 Jan"], ["Production quality", 15, "3D renders; equipment list with makes and models"], ["BOQ transparency", 15, "Line-by-line per campus, GST separate"], ["Team", 10, "Named manager per city; the show caller’s past shows"]];
-  $("#scorecard").innerHTML = SC.map(function (s) { return "<div class='wbar'><div>" + s[0] + "<small>" + s[2] + "</small></div><div class='track'><div style='width:" + (s[1] / 25 * 100) + "%'></div></div><b class='num' style='text-align:right'>" + s[1] + "%</b></div>"; }).join("");
-  var GT = [["27 Nov", "Event partner appointed"], ["4 Dec", "Artist contract signed"], ["11 Dec", "Renders, site and safety plans approved"], ["18 Dec", "All permits filed"], ["30 Dec", "Hand-over pack signed"], ["4 & 10 Jan", "Builds start"], ["7 & 13 Jan", "Shows"], ["22 Jan", "Report delivered"]];
+  /* ---------- finale ---------- */
+  var ROS = [["10:00", "Gates open; DJ and experience zones", "Early arrivals, wristband scans", 0], ["11:00", "Opening act and Office Cup roll call", "Rivalry set up on the LED leaderboard", 0], ["11:20", "Solo Step final, 5 acts", "Morning dance block", 0], ["12:15", "Crew Battle final, 5 crews", "The biggest draw lands on the lunch peak", 1], ["13:30", "Lunch: DJ, sampling, crowd games", "Changeover to the music backline", 0], ["14:30", "Backline final, 5 acts", "Rolling drum riser: 3-minute changeovers", 0], ["15:30", "Mic Drop final, 5 acts", "Afternoon music block", 0], ["17:30", "Open Mic final, 5 comics", "After-work crowd arriving", 0], ["18:15", "Judges deliberate; fan-favourite act plays", "No dead air while scores lock", 0], ["18:45", "Results, trophies, Office Champion Cup", "Peak crowd before the concert", 1], ["19:50", "Headline concert, 90 minutes", "Line-checked during the afternoon", 1], ["21:45", "Sound off", "15-minute buffer before the 22:00 limit", 0]];
+  $("#ros tbody").innerHTML = ROS.map(function (r) { return "<tr" + (r[3] ? " class='peak'" : "") + "><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td></tr>"; }).join("");
+  var BUILD = [["Stage", "60×40 ft at 5 ft with two wings and crew ramps; ground-support roof, wind-rated and engineer-certified"], ["LED", "40×18 ft main wall and two 12×8 ft side screens, outdoor-bright so it reads at noon"], ["Sound", "Concert line arrays, subs and front fills; delay towers at Madhapur; in-ear monitors"], ["Lighting", "48 moving heads, wash bars, blinders, 2 follow spots and a lighting designer"], ["Backline", "Drum kit on a rolling riser, keys, guitar and bass amps; shared by finalists and the headliner"], ["Power", "Two silent generators in N+1, a third for back of house; UPS on sound, LED and lighting desks"], ["Arrival", "Branded entry arch with 6 wristband lanes; Office Cup wall and experience zones"]];
+  $("#build").innerHTML = BUILD.map(function (b) { return "<div><dt>" + b[0] + "</dt><dd>" + b[1] + "</dd></div>"; }).join("");
+  var CAP = [["Peak capacity", "5,000", "7,000"], ["Standing area", "2,500 m²", "3,500 m²"], ["Exit width needed", "7.6 m", "10.7 m"], ["Exit width planned", "12 m", "16 m"], ["Security staff", "106", "143"]];
+  $("#cap tbody").innerHTML = CAP.map(function (c) { return "<tr><td>" + c[0] + "</td><td class='num'>" + c[1] + "</td><td class='num'>" + c[2] + "</td></tr>"; }).join("");
+  var SAFE = [["Standards", ["Purple Guide crowd density and exit sizing", "Engineer-certified structures with wind-stop limits", "Written risk register, reviewed at every gate", "A certified safety officer with show-stop authority"]], ["On the ground", ["At least 1 guard per 100 guests, about 30% women", "Ambulances, 2 first-aid posts, a doctor and paramedics", "Fire marshals, 60 radios, CCTV and a control room", "Barrier and pit team in front of the stage"]], ["Permits, filed by 18 Dec", ["Police event and loudspeaker permission in each city", "Fire NOC and electrical inspector sign-off", "Performance licence and music licences", "Sound off at 21:45; levels logged at the boundary"]]];
+  $("#safety").innerHTML = SAFE.map(function (x) { return "<div class='safe'><h4>" + x[0] + "</h4><ul>" + x[1].map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul></div>"; }).join("");
+  var GT = [["27 Nov", "Finale design and headline act approved"], ["4 Dec", "Artist contract signed"], ["11 Dec", "Renders, site and safety plans approved"], ["18 Dec", "All permits filed"], ["30 Dec", "Show pack locked"], ["4 & 10 Jan", "Builds start"], ["7 & 13 Jan", "Shows"], ["22 Jan", "Report delivered"]];
   $("#gates").innerHTML = GT.map(function (g) { return "<div class='gate'><b>" + g[0] + "</b><span>" + g[1] + "</span></div>"; }).join("");
 
   /* ---------- risks ---------- */
-  var RK = [["Slow registrations", "Below 60% of pace on 1 Dec", "Extend to 6 Dec; staffed sign-up desks in food courts; champion push.", "BRENSH"], ["One category too thin", "Under 50% of target on 1 Dec", "Mindspace marketing pushes that category; Mindspace may accept 3 finalists there.", "BRENSH"], ["Too many registrations", "Over 115% of capacity", "Open the second room, or a 60-second video pre-screen.", "BRENSH"], ["Templates or number not approved", "Not approved by 20 Nov", "Email and SMS fallback; resubmit.", "BRENSH"], ["Verification backlog", "Over 50 pending", "Add a temporary checker.", "BRENSH"], ["Judge drops out", "Any cancellation", "Standby judge who has attended calibration from day one.", "BRENSH"], ["Tablet or Wi-Fi failure", "During a window", "Paper sheets; mobile hotspot; typed in the same evening.", "BRENSH"], ["Space or hours refused", "At the recce", "Backup zone agreed at the same recce.", "BRENSH"], ["Lunch crowd blocks the flow", "Crowd past the rope line", "Facility security; move to the indoor backup.", "BRENSH"], ["Finalist drops after 24 Dec", "Any withdrawal", "A reserve with a complete pack steps in.", "BRENSH"], ["Data mishandled", "A sheet on a personal device", "Role-based access only; no downloads outside the system.", "BRENSH"], ["Award slips past 20 Nov", "No go decision", "Move auditions to 10–17 Dec; the 30 Dec hand-over holds.", "Shared"], ["Campaign under-staffed", "Registrations behind pace", "An agency for paid media only; staffed desks.", "Shared"], ["Event partner appointed late", "Not signed by 27 Nov", "Mindspace enforces the 27 Nov and 18 Dec gates.", "Shared"], ["Gaps in the hand-over pack", "Folders incomplete on 29 Dec", "BRENSH completeness check on 29 Dec; the partner’s manager observes from 18 Dec.", "Shared"]];
+  var RK = [["Slow registrations", "Below 60% of pace on 1 Dec", "Extend to 6 Dec; staffed sign-up desks in food courts; champion push.", "BRENSH"], ["One category too thin", "Under 50% of target on 1 Dec", "Mindspace marketing pushes that category; Mindspace may accept 3 finalists there.", "BRENSH"], ["Too many registrations", "Over 115% of capacity", "Open the second room, or a 60-second video pre-screen.", "BRENSH"], ["Templates or number not approved", "Not approved by 20 Nov", "Email and SMS fallback; resubmit.", "BRENSH"], ["Verification backlog", "Over 50 pending", "Add a temporary checker.", "BRENSH"], ["Judge drops out", "Any cancellation", "Standby judge who has attended calibration from day one.", "BRENSH"], ["Tablet or Wi-Fi failure", "During a window", "Paper sheets; mobile hotspot; typed in the same evening.", "BRENSH"], ["Space or hours refused", "At the recce", "Backup zone agreed at the same recce.", "BRENSH"], ["Lunch crowd blocks the flow", "Crowd past the rope line", "Facility security; move to the indoor backup.", "BRENSH"], ["Finalist drops after 24 Dec", "Any withdrawal", "A reserve with a complete pack steps in.", "BRENSH"], ["Data mishandled", "A sheet on a personal device", "Role-based access only; no downloads outside the system.", "BRENSH"], ["Award slips past 20 Nov", "No go decision", "Move auditions to 10–17 Dec; the finale dates hold.", "Shared"], ["Campaign under-staffed", "Registrations behind pace", "An agency for paid media only; staffed desks.", "Shared"], ["Headline act cancels", "Any change after contract", "Replacement clause in the contract; the second shortlisted act holds both dates.", "BRENSH"], ["Weather on a finale day", "Rain or wind forecast 48 hours out", "Wind-rated roof with stop limits; covered sound desk and power; the safety officer can pause the show.", "BRENSH"], ["Permit delayed", "Not issued 5 days before a show", "Filed by 18 Dec with a named liaison in each city and a daily follow-up.", "BRENSH"], ["Crowd at capacity", "Scans near the certified limit", "Wristbands capped by company; entry closes at capacity.", "BRENSH"], ["Power failure", "Any generator fault", "Generators in N+1; UPS holds sound, LED and lighting desks.", "BRENSH"]];
   $("#riskList").innerHTML = RK.map(function (r) { return "<div class='risk'><span class='tag'>" + r[3] + "</span><h4>" + r[0] + "</h4><span class='sign'>Early sign: " + r[1] + "</span><p>" + r[2] + "</p></div>"; }).join("");
 
   /* ---------- static lists ---------- */
@@ -1175,15 +1196,17 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
   var OWN = { b: "BRENSH", m: "MINDSPACE", j: "TOGETHER" };
   var WEEKS = [
     ["5–6 Nov", "2026-11-05", "2026-11-08", [["m", "Share the plan internally; confirm phase owners and BRENSH’s scope"], ["m", "Share the tenant company list with email domains, facility contacts and recce dates"], ["b", "Start WhatsApp business verification (uses Mindspace business documents)"], ["b", "Shortlist backend builders; demos and quotes"], ["b", "Quotes from 2 AV suppliers per city for the audition kit"]]],
-    ["9–13 Nov", "2026-11-09", "2026-11-15", [["b", "Draft rules, FAQ and consent text for Mindspace legal"], ["b", "Approach judges: 9 per park plus 1 standby"], ["m", "Issue the event partner brief for Phase 3"]]],
-    ["16–20 Nov", "2026-11-16", "2026-11-22", [["b", "Backend builder hired; build starts"], ["j", "Recce both parks: zone, power, Wi-Fi, load-in, storage, washrooms, crew passes"], ["b", "Submit the 12 message templates for approval"], ["b", "Book AV suppliers and recording crews; pencil judges for every window"], ["b", "Two helpdesk executives hired"], ["m", "Award and go decision by 20 Nov"]]],
-    ["23–27 Nov", "2026-11-23", "2026-11-29", [["m", "23 Nov: approve rules, consent and Office Cup points; share the brand kit"], ["b", "24 Nov: soft launch with 20 test registrations"], ["b", "25 Nov, 09:00: registrations open"], ["b", "Daily 18:00 snapshot to Mindspace and office champions"], ["b", "Judges’ contracts and brief pack"], ["m", "27 Nov: appoint the event partner"]]],
-    ["30 Nov–4 Dec", "2026-11-30", "2026-12-06", [["j", "1 Dec: health check; category pushes for anything under 50%"], ["b", "2 Dec: kit confirmed; signage printed from Mindspace artwork"], ["b", "3 Dec: end-to-end test of scoring and check-in"], ["b", "4 Dec, 20:00: registrations close; day plan built; judge windows locked"]]],
-    ["5–11 Dec", "2026-12-05", "2026-12-13", [["b", "5–6 Dec: slot booking; the rest auto-assigned"], ["b", "7 Dec evening: load-in at both parks"], ["b", "8–11 Dec: auditions; nightly score lock, audit and backup; footage to Mindspace"], ["b", "11 Dec: Airoli East make-ups; auditions close"]]],
-    ["14–18 Dec", "2026-12-14", "2026-12-20", [["b", "14–15 Dec: Madhapur auditions finish; make-ups on 15 Dec"], ["j", "16–17 Dec: review calls; results signed by judges, BRENSH and Mindspace"], ["b", "18 Dec, 10:00: personal results to every act"], ["m", "18 Dec, 12:00: public finalist reveal"]]],
-    ["21–24 Dec", "2026-12-21", "2026-12-27", [["b", "21 Dec: confirmations close; 22 Dec: reserves promoted"], ["j", "21–23 Dec: finalist story shoots with Mindspace marketing"], ["b", "24 Dec: finalist packs complete"]]],
-    ["28–30 Dec", "2026-12-28", "2027-01-03", [["b", "28 Dec: rehearsal slots sent to finalists"], ["b", "29 Dec: every act folder checked"], ["j", "30 Dec: hand-over signed by the event partner and Mindspace"]]],
-    ["After the finales", "2027-01-14", "2027-04-13", [["b", "By 15 Jan: registration and audition numbers for the post-event report"], ["b", "By 13 Apr: participant data deleted, confirmed in writing"]]]
+    ["9–13 Nov", "2026-11-09", "2026-11-15", [["b", "Draft rules, FAQ and consent text for Mindspace legal"], ["b", "Approach judges: 9 per park plus 1 standby"], ["b", "Headline act shortlist: agent quotes, riders and holds for 7 and 13 Jan"], ["b", "Finale production quotes from 3 suppliers per city"]]],
+    ["16–20 Nov", "2026-11-16", "2026-11-22", [["b", "Backend builder hired; build starts"], ["j", "Recce both parks: audition zones and the finale arena; power, Wi-Fi, load-in, storage, crew passes"], ["b", "Submit the 12 message templates for approval"], ["b", "Book AV suppliers and recording crews; pencil judges for every window"], ["b", "Two helpdesk executives hired"], ["m", "Award and go decision by 20 Nov"]]],
+    ["23–27 Nov", "2026-11-23", "2026-11-29", [["m", "23 Nov: approve rules, consent and Office Cup points; share the brand kit"], ["b", "24 Nov: soft launch with 20 test registrations"], ["b", "25 Nov, 09:00: registrations open"], ["b", "Daily 18:00 snapshot to Mindspace and office champions"], ["b", "Judges’ contracts and brief pack"], ["m", "27 Nov: approve the finale design and headline act; name the show lead"], ["b", "Finale crews, structures and power booked"]]],
+    ["30 Nov–4 Dec", "2026-11-30", "2026-12-06", [["j", "1 Dec: health check; category pushes for anything under 50%"], ["b", "2 Dec: kit confirmed; signage printed from Mindspace artwork"], ["b", "3 Dec: end-to-end test of scoring and check-in"], ["b", "4 Dec, 20:00: registrations close; day plan built; judge windows locked"], ["b", "4 Dec: headline act contract signed"]]],
+    ["5–11 Dec", "2026-12-05", "2026-12-13", [["b", "5–6 Dec: slot booking; the rest auto-assigned"], ["b", "7 Dec evening: load-in at both parks"], ["b", "8–11 Dec: auditions; nightly score lock, audit and backup; footage to Mindspace"], ["b", "11 Dec: Airoli East make-ups; auditions close"], ["b", "11 Dec: finale renders, site and safety plans to Mindspace"]]],
+    ["14–18 Dec", "2026-12-14", "2026-12-20", [["b", "14–15 Dec: Madhapur auditions finish; make-ups on 15 Dec"], ["j", "16–17 Dec: review calls; results signed by judges, BRENSH and Mindspace"], ["b", "18 Dec, 10:00: personal results to every act"], ["m", "18 Dec, 12:00: public finalist reveal"], ["b", "18 Dec: all permits and music licences filed"]]],
+    ["21–24 Dec", "2026-12-21", "2026-12-27", [["b", "21 Dec: confirmations close; 22 Dec: reserves promoted"], ["j", "21–23 Dec: finalist story shoots with Mindspace marketing"], ["b", "24 Dec: finalist packs complete"], ["j", "Company wristband sign-ups open; BRENSH allocates up to capacity"]]],
+    ["28 Dec–3 Jan", "2026-12-28", "2027-01-03", [["b", "28 Dec: rehearsal slots sent to finalists"], ["b", "29 Dec: every act folder checked"], ["j", "30 Dec: show pack locked; running order signed off"], ["b", "Permits and certificates tracked to issue"]]],
+    ["4–9 Jan · Madhapur", "2027-01-04", "2027-01-09", [["b", "4–5 Jan: build; stage roof certified"], ["b", "6 Jan: tech rehearsal and finalist slots"], ["b", "Thu 7 Jan: Madhapur finale and concert"], ["b", "8 Jan: load-out; park handed back"]]],
+    ["10–14 Jan · Airoli East", "2027-01-10", "2027-01-14", [["b", "10–11 Jan: build; stage roof certified"], ["b", "12 Jan: tech rehearsal and finalist slots"], ["b", "Wed 13 Jan: Airoli East finale and concert"], ["b", "14 Jan: load-out; park handed back"]]],
+    ["After the finales", "2027-01-15", "2027-04-13", [["b", "By 22 Jan: report with numbers, coverage and the aftermovie"], ["m", "Prize payouts and certificates"], ["b", "By 13 Apr: participant data deleted, confirmed in writing"]]]
   ];
   var ASKS = [
     ["6 Nov", "Confirm phase owners and BRENSH’s scope", "Everything else hangs off who signs what"],
@@ -1193,13 +1216,14 @@ h3.sub { font-size: 34px; font-weight: 600; line-height: 1.1; }
     ["24 Nov", "Audition zones and hours approved by facility teams", "Load-in, power and security passes depend on it"],
     ["24 Nov", "Prizes and recognition", "Registration copy names them"],
     ["24 Nov", "Optional: at most 2 finalist acts per company per category", "Spreads the Office Cup across more companies"],
-    ["27 Nov", "Event partner appointed; Mindspace show lead named", "Artist holds and permits by 18 Dec"],
-    ["27 Nov", "Finale dates: Thu 7 Jan Madhapur, Wed 13 Jan Airoli East", "Rehearsals and the hand-over pack are built around them"],
+    ["27 Nov", "Finale design and headline act approved; Mindspace show lead named", "Artist contract by 4 Dec, permits by 18 Dec"],
+    ["27 Nov", "Finale dates: Thu 7 Jan Madhapur, Wed 13 Jan Airoli East", "Rehearsals and the show pack are built around them"],
+    ["11 Dec", "Finale renders, site and safety plans approved", "Builds are ordered against them"],
     ["Ongoing", "One approver with a 48-hour turnaround", "Keeps every gate on schedule"]
   ];
   var today = Date.now();
   (function countdowns() {
-    var C = [["2026-11-25", "days to registrations open"], ["2026-12-08", "days to the first audition"], ["2026-12-30", "days to the signed hand-over"], ["2027-01-07", "days to the first finale"]];
+    var C = [["2026-11-25", "days to registrations open"], ["2026-12-08", "days to the first audition"], ["2027-01-07", "days to the Madhapur finale"], ["2027-01-13", "days to the Airoli East finale"]];
     $("#countdowns").innerHTML = C.map(function (c) {
       var d = Math.ceil((Date.parse(c[0]) - today) / 864e5);
       return "<div><b class='num'>" + (d > 0 ? d : "✓") + "</b><span>" + (d > 0 ? c[1] : c[1].replace("days to ", "") + ": under way or done") + "</span></div>";
