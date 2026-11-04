@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="MGT ’27 field plan: phases, participant engine, audition-day operations and to-dos for Mindspace Got Talent ’27.">
+<title>MGT ’27 Field Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: a descent from altitude. Fixed altimeter rail on the left; bands alternate stage-black and poster-paper as you drop from bird's eye to the audition floor. */
+:root {
+  --stage: #121116;      /* stage black, the brief's ground */
+  --stage-2: #1C1A22;    /* raised panel on black */
+  --paper: #F1EFEA;      /* poster paper */
+  --paper-2: #E6E2D8;    /* card on paper */
+  --lime: #CFF23F;       /* Mindspace brief lime */
+  --violet: #5B3FF2;     /* Mindspace brief violet */
+  --violet-lt: #A89BFF;  /* violet for text on black */
+  --fg: #F4F2EC;
+  --fg-dim: #B6B2C2;
+  --ink: #17161B;
+  --ink-dim: #55525F;
+  --rule-d: rgba(244,242,236,.14);
+  --rule-p: rgba(23,22,27,.16);
+  --c-sd: #CFF23F; --c-gd: #8C7BFF; --c-v: #FF7FB0; --c-i: #45C9F2; --c-su: #FFB547; --c-mk: #6E6A7A;
+  --good: #3FD08A; --warn: #FFB547; --crit: #FF6A6A;
+  --f-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --rail: 168px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--stage); color: var(--fg); font-family: var(--f-body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--stage); }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 4px; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- altimeter rail ---------- */
+.rail { position: fixed; left: 0; top: 0; bottom: 0; width: var(--rail); z-index: 20; padding: calc(28px + env(safe-area-inset-top, 0px)) 0 24px max(18px, env(safe-area-inset-left, 0px)); display: flex; flex-direction: column; gap: 6px; background: var(--stage); border-right: 1px solid var(--rule-d); }
+.rail-brand { font-family: var(--f-display); font-size: 22px; letter-spacing: .5px; line-height: 1; color: var(--lime); pointer-events: auto; text-decoration: none; margin-bottom: 18px; }
+.rail-brand small { display: block; font-family: var(--f-body); font-size: 12px; color: var(--fg-dim); letter-spacing: .02em; margin-top: 6px; }
+.alt { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-left: 18px; border-left: 2px solid var(--rule-d); max-height: 520px; }
+.alt-fill { position: absolute; left: -2px; top: 0; width: 2px; background: var(--lime); height: 0%; transition: height .15s linear; }
+.alt a { pointer-events: auto; text-decoration: none; display: block; position: relative; color: var(--fg-dim); font-size: 13.5px; line-height: 1.25; padding: 4px 0; }
+.alt a::before { content: ""; position: absolute; left: -25px; top: 9px; width: 10px; height: 10px; border-radius: 50%; background: var(--stage); border: 2px solid var(--fg-dim); }
+.alt a b { display: block; font-family: var(--f-display); font-weight: 400; font-size: 17px; color: var(--fg); letter-spacing: .3px; }
+.alt a.on b { color: var(--lime); }
+.alt a.on::before { background: var(--lime); border-color: var(--lime); }
+.topbar { display: none; }
+
+/* ---------- bands ---------- */
+.band { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.band > .wrap { margin-left: calc(var(--rail) + 24px); max-width: 1120px; padding-block: 96px; }
+.band.paper { background: var(--paper); color: var(--ink); }
+.band.lime { background: var(--lime); color: var(--ink); }
+.band.violet { background: var(--violet); color: #FBFAFF; }
+.band.dark2 { background: #0C0B0F; }
+@media (max-width: 980px) {
+  :root { --rail: 0px; }
+  .rail { display: none; }
+  .band > .wrap { margin-left: 0; padding-block: 64px; }
+  .topbar { display: flex; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--stage); border-bottom: 1px solid var(--rule-d); padding: 10px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)); gap: 14px; overflow-x: auto; scrollbar-width: none; }
+  .topbar a { white-space: nowrap; text-decoration: none; font-size: 14px; color: var(--fg-dim); }
+  .topbar a.on { color: var(--lime); }
+  .topbar .bar { position: absolute; left: 0; bottom: -1px; height: 2px; background: var(--lime); width: 0; }
+}
+
+/* ---------- type ---------- */
+.alt-tag { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; letter-spacing: .04em; margin-bottom: 18px; }
+.alt-tag i { font-style: normal; font-family: var(--f-display); font-size: 15px; padding: 4px 10px 3px; background: var(--lime); color: var(--ink); transform: rotate(-2deg); display: inline-block; }
+.paper .alt-tag i, .lime .alt-tag i { background: var(--ink); color: var(--lime); }
+.violet .alt-tag i { background: var(--lime); color: var(--ink); }
+h2.sec { font-family: var(--f-display); font-weight: 400; font-size: clamp(44px, 6.4vw, 84px); line-height: .98; text-transform: uppercase; letter-spacing: .5px; max-width: 16ch; }
+.lede { font-size: clamp(18px, 1.6vw, 21px); line-height: 1.5; max-width: 62ch; margin-top: 20px; color: var(--fg-dim); }
+.paper .lede, .lime .lede { color: var(--ink-dim); }
+.violet .lede { color: #DCD6FF; }
+h3.sub { font-family: var(--f-display); font-weight: 400; font-size: 30px; letter-spacing: .4px; text-transform: uppercase; line-height: 1.05; }
+.kicker { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: var(--fg-dim); }
+.paper .kicker { color: var(--ink-dim); }
+.block { margin-top: 56px; display: grid; gap: 20px; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 28px; align-items: start; }
+.two > * , .three > * { min-width: 0; }
+.three { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px; }
+.note { font-size: 14.5px; color: var(--fg-dim); max-width: 70ch; }
+.paper .note { color: var(--ink-dim); }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; }
+.hero .wrap { padding-block: 88px 72px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+.hero h1 { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; line-height: .9; font-size: clamp(64px, 9.4vw, 140px); letter-spacing: .5px; }
+.hero h1 span { display: block; color: var(--lime); }
+.hero .lede { color: var(--fg-dim); max-width: 44ch; }
+.sticker { display: inline-block; font-family: var(--f-display); font-size: 16px; letter-spacing: .6px; padding: 7px 14px 6px; background: var(--lime); color: var(--ink); transform: rotate(-3deg); margin-bottom: 26px; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 40px; border-top: 1px solid var(--rule-d); }
+.stats div { padding: 18px 16px 0 0; }
+.stats b { display: block; font-family: var(--f-display); font-weight: 400; font-size: clamp(34px, 4vw, 52px); line-height: 1; color: var(--fg); font-variant-numeric: tabular-nums; }
+.stats span { font-size: 14px; color: var(--fg-dim); }
+.map { width: 100%; max-width: 100%; height: auto; display: block; transform-origin: 40% 50%; }
+.map .arc { stroke-dasharray: 8 9; animation: dash 2.4s linear infinite; }
+@keyframes dash { to { stroke-dashoffset: -34; } }
+.map .ping { transform-box: fill-box; transform-origin: center; animation: ping 2.8s ease-out infinite; }
+@keyframes ping { 0% { transform: scale(.6); opacity: .8; } 100% { transform: scale(1.9); opacity: 0; } }
+.zoomcue { margin-top: 36px; display: inline-flex; align-items: center; gap: 12px; font-size: 14.5px; color: var(--fg-dim); text-decoration: none; }
+.zoomcue span { width: 30px; height: 30px; border: 2px solid var(--lime); border-radius: 50%; display: grid; place-items: center; color: var(--lime); }
+
+/* ---------- phase gantt ---------- */
+.gantt { margin-top: 44px; overflow-x: auto; }
+.gantt-inner { min-width: 760px; }
+@media (max-width: 600px) { .gantt-inner { min-width: 620px; } .g-axis, .g-row { grid-template-columns: 150px 1fr !important; } .g-name b { font-size: 14px; } }
+.g-axis { display: grid; grid-template-columns: 250px 1fr; }
+.g-ticks { position: relative; height: 28px; border-bottom: 1px solid var(--rule-p); }
+.g-ticks span { position: absolute; transform: translateX(-50%); font-size: 13px; color: var(--ink-dim); white-space: nowrap; }
+.g-row { display: grid; grid-template-columns: 250px 1fr; align-items: center; min-height: 52px; border-bottom: 1px solid var(--rule-p); }
+.g-row button.g-name { all: unset; cursor: pointer; padding: 8px 12px 8px 0; display: block; }
+.g-row button.g-name:focus-visible { outline: 3px solid var(--violet); }
+.g-name b { display: block; font-weight: 600; font-size: 15.5px; }
+.g-name small { font-size: 13px; color: var(--ink-dim); }
+.g-track { position: relative; height: 52px; }
+.g-grid { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--rule-p); }
+.g-bar { position: absolute; top: 15px; height: 22px; border-radius: 11px; background: var(--paper-2); border: 1.5px solid #9A96A4; cursor: pointer; transition: transform .2s, box-shadow .2s; }
+.g-bar.mine { background: var(--violet); border-color: var(--violet); }
+.g-bar:hover, .g-bar.sel { transform: scaleY(1.25); box-shadow: 0 0 0 3px rgba(91,63,242,.25); }
+.g-dia { position: absolute; top: 16px; width: 20px; height: 20px; background: var(--violet); transform: translateX(-50%) rotate(45deg); }
+.g-now { position: absolute; top: -28px; bottom: 0; border-left: 2px dashed var(--violet); pointer-events: none; }
+.g-now span { position: absolute; top: 0; left: 6px; font-size: 12px; font-weight: 700; color: var(--violet); white-space: nowrap; }
+.g-handover { position: absolute; top: 0; bottom: 0; border-left: 2px solid var(--ink); pointer-events: none; }
+.phase-card { margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 28px; background: var(--ink); color: var(--fg); padding: 32px; border-radius: 4px; }
+@media (max-width: 760px) { .phase-card { grid-template-columns: 1fr; padding: 24px; } }
+.phase-card h3 { font-family: var(--f-display); font-weight: 400; font-size: 40px; line-height: 1; text-transform: uppercase; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.chip { font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 99px; background: var(--stage-2); border: 1px solid var(--rule-d); }
+.chip.lime { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+.chip.violet { background: var(--violet); color: #fff; border-color: var(--violet); }
+.phase-card ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(--fg-dim); }
+.verdict { margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 0; border-top: 2px solid var(--ink); }
+.verdict div { padding: 20px 20px 4px 0; }
+.verdict b { display: block; font-size: 16px; margin-bottom: 6px; }
+.verdict p { font-size: 15.5px; color: var(--ink-dim); }
+
+/* ---------- handoffs diagram ---------- */
+.flowmap { width: 100%; height: auto; display: block; }
+.flowmap text { font-family: var(--f-body); }
+.flowmap .node rect { transition: fill .2s; }
+.flowmap .node { cursor: pointer; }
+.flowmap .node:hover rect.box, .flowmap .node.sel rect.box { fill: rgba(207,242,63,.12); }
+.xfer { margin-top: 18px; display: grid; gap: 0; }
+.xfer-row { display: grid; grid-template-columns: 130px minmax(0, 1fr) 150px; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule-d); font-size: 15.5px; }
+.xfer-row .dir { font-weight: 700; font-size: 13px; letter-spacing: .03em; color: var(--lime); }
+.xfer-row .when { color: var(--fg-dim); font-size: 14px; text-align: right; }
+@media (max-width: 640px) { .xfer-row { grid-template-columns: 1fr; gap: 2px; } .xfer-row .when { text-align: left; } }
+
+/* ---------- funnel ---------- */
+.seg { display: inline-flex; background: var(--stage-2); border: 1px solid var(--rule-d); border-radius: 99px; padding: 4px; gap: 4px; }
+.paper .seg { background: var(--paper-2); border-color: var(--rule-p); }
+.seg button { border: 0; background: transparent; padding: 7px 16px; border-radius: 99px; font-size: 14.5px; font-weight: 600; color: inherit; }
+.seg button[aria-pressed="true"] { background: var(--lime); color: var(--ink); }
+.funnel { display: grid; gap: 10px; margin-top: 22px; }
+.f-row { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 16px; align-items: center; }
+.f-row .lab { font-size: 15px; }
+.f-row .lab small { display: block; color: var(--fg-dim); font-size: 13px; }
+.f-bar { height: 44px; background: var(--violet); border-radius: 3px; display: flex; align-items: center; padding: 0 14px; font-family: var(--f-display); font-size: 22px; letter-spacing: .5px; color: #fff; min-width: 64px; transition: width .6s cubic-bezier(.2,.8,.2,1); }
+.f-bar.l { background: var(--lime); color: var(--ink); }
+@media (max-width: 600px) { .f-row { grid-template-columns: 1fr; gap: 4px; } }
+
+/* ---------- step explorer ---------- */
+.steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-top: 22px; counter-reset: st; }
+.steps button { text-align: left; border: 1px solid var(--rule-d); background: var(--stage-2); border-radius: 4px; padding: 12px 12px 14px; display: grid; gap: 4px; transition: background .2s, border-color .2s; }
+.steps button::before { counter-increment: st; content: counter(st, decimal-leading-zero); font-family: var(--f-display); font-size: 15px; color: var(--violet-lt); }
+.steps button b { font-size: 15px; }
+.steps button small { font-size: 12.5px; color: var(--fg-dim); }
+.steps button[aria-pressed="true"] { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+.steps button[aria-pressed="true"]::before, .steps button[aria-pressed="true"] small { color: var(--ink); }
+.step-detail { margin-top: 16px; border-left: 4px solid var(--lime); padding: 6px 0 6px 20px; display: grid; gap: 10px; }
+.step-detail h4 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 28px; text-transform: uppercase; letter-spacing: .4px; }
+.kv { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 6px 16px; font-size: 15.5px; }
+.kv dt { color: var(--fg-dim); }
+.kv dd { margin: 0; }
+
+/* ---------- architecture ---------- */
+.arch { width: 100%; height: auto; display: block; }
+.arch text { font-family: var(--f-body); }
+table.t { width: 100%; border-collapse: collapse; font-size: 15px; }
+table.t th { text-align: left; font-weight: 600; font-size: 13.5px; color: var(--ink-dim); padding: 10px 12px 10px 0; border-bottom: 2px solid var(--ink); }
+table.t td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--rule-p); vertical-align: top; }
+.band:not(.paper):not(.lime):not(.violet) table.t th { color: var(--fg-dim); border-bottom-color: var(--fg); }
+.band:not(.paper):not(.lime):not(.violet) table.t td { border-bottom-color: var(--rule-d); }
+.tablewrap { overflow-x: auto; }
+.pipe { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 8px; }
+.pipe span { font-size: 13.5px; font-weight: 600; padding: 6px 11px; border: 1.5px solid var(--ink); border-radius: 3px; background: var(--paper); }
+.pipe span.end { background: var(--violet); color: #fff; border-color: var(--violet); }
+.pipe i { font-style: normal; color: var(--ink-dim); }
+details.fold { border-top: 1px solid var(--rule-p); }
+details.fold summary { cursor: pointer; padding: 14px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+details.fold summary::-webkit-details-marker { display: none; }
+details.fold summary::after { content: "+"; font-family: var(--f-display); font-size: 22px; line-height: 1; }
+details.fold[open] summary::after { content: "–"; }
+.band:not(.paper):not(.lime) details.fold { border-top-color: var(--rule-d); }
+
+/* ---------- pace chart ---------- */
+.chart { width: 100%; height: auto; display: block; }
+.chart text { font-family: var(--f-body); font-size: 12px; fill: var(--ink-dim); }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px; margin-top: 10px; }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+.splitbar { display: flex; height: 54px; border-radius: 3px; overflow: hidden; margin-top: 14px; }
+.splitbar div { display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13.5px; color: var(--ink); min-width: 0; overflow: hidden; white-space: nowrap; }
+.tickets { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.ticket { position: relative; background: var(--paper); border: 1.5px dashed var(--ink); padding: 14px 16px 14px 54px; border-radius: 4px; min-height: 92px; }
+.ticket b { font-family: var(--f-display); font-weight: 400; position: absolute; left: 14px; top: 12px; font-size: 26px; color: var(--violet); }
+.ticket strong { display: block; font-size: 15px; }
+.ticket em { font-style: normal; display: block; font-size: 13px; color: var(--ink-dim); margin-top: 2px; }
+.ticket p { font-size: 13.5px; margin-top: 6px; }
+
+/* ---------- schedule grid ---------- */
+.sched { display: grid; gap: 10px; margin-top: 22px; }
+.s-day { display: grid; grid-template-columns: 110px minmax(0, 1fr) minmax(0, 1fr); gap: 10px; align-items: stretch; }
+.s-day .d { font-weight: 600; font-size: 15px; display: flex; align-items: center; }
+.s-win { display: flex; height: 50px; background: var(--stage-2); border-radius: 3px; overflow: hidden; position: relative; }
+.s-win div { display: flex; align-items: center; padding: 0 8px; font-size: 12.5px; font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; border-right: 2px solid var(--stage); min-width: 0; }
+.s-win .over { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 11.5px; font-weight: 700; color: var(--ink); background: var(--paper); padding: 2px 6px; border-radius: 3px; }
+.s-head { display: grid; grid-template-columns: 110px minmax(0, 1fr) minmax(0, 1fr); gap: 10px; font-size: 13px; color: var(--fg-dim); }
+@media (max-width: 640px) { .s-day, .s-head { grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1fr); } .s-day .d { font-size: 13px; } }
+
+/* ---------- day clock ---------- */
+.dayline { position: relative; margin-top: 18px; height: 84px; }
+.dayline .axis { position: absolute; left: 0; right: 0; top: 30px; height: 2px; background: var(--rule-d); }
+.dl-block { position: absolute; top: 10px; height: 42px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--ink); cursor: pointer; border: 0; padding: 0 4px; overflow: hidden; white-space: nowrap; }
+.dl-tick { position: absolute; top: 60px; font-size: 12px; color: var(--fg-dim); transform: translateX(-50%); }
+.dl-detail { min-height: 52px; font-size: 15.5px; border-left: 4px solid var(--lime); padding: 4px 0 4px 16px; }
+.dl-detail b { display: block; }
+
+/* ---------- floor plan ---------- */
+.plan { width: 100%; height: auto; display: block; background: var(--paper); border-radius: 4px; }
+.plan text { font-family: var(--f-body); }
+.plan .z { cursor: pointer; }
+.plan .z:hover rect, .plan .z.sel rect { stroke: var(--violet); stroke-width: 3; }
+.plan-note { font-size: 15.5px; min-height: 48px; }
+
+/* ---------- checklists ---------- */
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.checks li label { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; align-items: start; padding: 9px 4px; border-radius: 3px; cursor: pointer; }
+.checks li label:hover { background: rgba(127,127,127,.08); }
+.checks input { appearance: none; width: 20px; height: 20px; border: 2px solid currentColor; border-radius: 3px; margin: 2px 0 0; display: grid; place-items: center; cursor: pointer; }
+.checks input:checked { background: var(--violet); border-color: var(--violet); }
+.checks input:checked::after { content: ""; width: 5px; height: 10px; border: solid #fff; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg) translate(-1px, -1px); }
+.checks input:checked + span { text-decoration: line-through; opacity: .55; }
+.band:not(.paper):not(.lime) .checks input:checked { background: var(--lime); border-color: var(--lime); }
+.band:not(.paper):not(.lime) .checks input:checked::after { border-color: var(--ink); }
+
+/* ---------- judging ---------- */
+.calc { background: var(--ink); color: var(--fg); padding: 28px; border-radius: 4px; display: grid; gap: 18px; }
+.calc .cats { display: flex; flex-wrap: wrap; gap: 6px; }
+.calc .cats button { border: 1.5px solid var(--rule-d); background: transparent; padding: 6px 12px; border-radius: 99px; font-size: 14px; font-weight: 600; }
+.calc .cats button[aria-pressed="true"] { color: var(--ink); }
+.slider { display: grid; grid-template-columns: minmax(0, 1fr) 54px; gap: 4px 12px; align-items: center; }
+.slider label { font-size: 14.5px; }
+.slider label small { color: var(--fg-dim); }
+.slider input { grid-column: 1 / -1; width: 100%; accent-color: var(--lime); }
+.slider output { text-align: right; font-weight: 700; }
+.score { display: flex; align-items: baseline; gap: 12px; border-top: 1px solid var(--rule-d); padding-top: 16px; }
+.score b { font-family: var(--f-display); font-weight: 400; font-size: 64px; line-height: 1; color: var(--lime); }
+.score span { color: var(--fg-dim); font-size: 14.5px; }
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.timeline li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule-p); }
+.timeline li b { font-weight: 700; }
+.band:not(.paper):not(.lime) .timeline li { border-bottom-color: var(--rule-d); }
+@media (max-width: 560px) { .timeline li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* ---------- beats ---------- */
+.beats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; margin-top: 30px; border-top: 2px solid #FBFAFF; }
+.beats > div { padding: 18px 16px 0 0; position: relative; }
+.beats > div::before { content: ""; position: absolute; top: -8px; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--lime); }
+.beats h4 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 26px; text-transform: uppercase; letter-spacing: .4px; }
+.beats .when { font-size: 13.5px; font-weight: 600; color: var(--lime); }
+.beats p { font-size: 14.5px; color: #DCD6FF; margin-top: 8px; }
+@media (max-width: 900px) { .beats { grid-template-columns: 1fr 1fr; row-gap: 28px; } }
+@media (max-width: 520px) { .beats { grid-template-columns: 1fr; } }
+.violet table.t th { color: #DCD6FF; border-bottom-color: #FBFAFF; }
+.violet table.t td { border-bottom-color: rgba(255,255,255,.2); }
+.idea { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); padding: 18px; border-radius: 4px; }
+.idea b { display: block; margin-bottom: 4px; }
+.idea p { font-size: 14.5px; color: #DCD6FF; }
+
+/* ---------- vendor ---------- */
+.wbar { display: grid; grid-template-columns: 200px minmax(0, 1fr) 50px; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--rule-d); }
+.wbar .track { height: 14px; background: var(--stage-2); border-radius: 7px; overflow: hidden; }
+.wbar .track div { height: 100%; background: var(--lime); border-radius: 7px; }
+.wbar small { display: block; color: var(--fg-dim); font-size: 13px; }
+@media (max-width: 600px) { .wbar { grid-template-columns: minmax(0, 1fr) 50px; } .wbar .track { grid-column: 1 / -1; grid-row: 2; } }
+.gates { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 10px; }
+.gate { border: 1.5px solid var(--rule-d); padding: 14px; border-radius: 4px; }
+.gate b { display: block; font-family: var(--f-display); font-weight: 400; font-size: 24px; color: var(--lime); }
+.gate span { font-size: 14px; }
+
+/* ---------- my list ---------- */
+.listhead { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; margin-top: 34px; }
+.ring { display: flex; align-items: center; gap: 16px; }
+.ring svg { width: 84px; height: 84px; }
+.ring b { font-family: var(--f-display); font-weight: 400; font-size: 40px; line-height: 1; }
+.weeks { margin-top: 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 18px; align-items: start; }
+.week { background: var(--paper-2); border-radius: 4px; padding: 20px 20px 12px; border-top: 6px solid var(--ink); }
+.week.now { border-top-color: var(--violet); background: #fff; }
+.week header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.week h4 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 26px; text-transform: uppercase; letter-spacing: .3px; }
+.week .cnt { font-size: 13.5px; font-weight: 700; color: var(--ink-dim); }
+.week .badge { font-size: 12px; font-weight: 700; color: #fff; background: var(--violet); padding: 2px 8px; border-radius: 99px; margin-left: 8px; vertical-align: middle; }
+.week .mini { height: 4px; background: rgba(23,22,27,.1); border-radius: 2px; margin-bottom: 8px; overflow: hidden; }
+.week .mini div { height: 100%; background: var(--violet); width: 0; transition: width .3s; }
+.week.hidden { display: none; }
+.resetbtn { border: 1.5px solid var(--ink); background: transparent; padding: 8px 14px; border-radius: 99px; font-size: 14px; font-weight: 600; }
+
+/* ---------- risks ---------- */
+.risks { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 12px; margin-top: 26px; }
+.risk { border: 1px solid var(--rule-d); border-radius: 4px; padding: 18px; display: grid; gap: 8px; background: var(--stage-2); }
+.risk h4 { margin: 0; font-size: 17px; }
+.risk .sign { font-size: 13.5px; color: var(--warn); font-weight: 600; }
+.risk p { font-size: 14.5px; color: var(--fg-dim); }
+.risk .tag { justify-self: start; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--violet); color: #fff; }
+.foot { font-size: 13.5px; color: var(--fg-dim); }
+.foot .wrap { padding-block: 40px 56px; }
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<nav class="rail" aria-label="Altitude">
+  <a class="rail-brand" href="#top">MGT ’27<small>Field plan · Nov 2026</small></a>
+  <div class="alt" id="alt">
+    <div class="alt-fill" id="altFill"></div>
+    <a href="#top"><b>Bird’s eye</b>Two parks, one fest</a>
+    <a href="#phases"><b>10,000 ft</b>Phases</a>
+    <a href="#handoffs"><b>5,000 ft</b>Who hands what</a>
+    <a href="#engine"><b>1,000 ft</b>Participant engine</a>
+    <a href="#backend"><b>500 ft</b>The system</a>
+    <a href="#window"><b>200 ft</b>Registrations</a>
+    <a href="#ground"><b>Ground</b>Audition days</a>
+    <a href="#judging"><b>Desk</b>Judging</a>
+    <a href="#bridge"><b>Hand-off</b>Finalists</a>
+    <a href="#buzz"><b>Phase 2</b>Buzz</a>
+    <a href="#finale"><b>Phase 3</b>Finale vendor</a>
+    <a href="#mylist"><b>Your list</b>To-dos</a>
+  </div>
+</nav>
+<div class="topbar" id="topbar"><a href="#top">Bird’s eye</a><a href="#phases">Phases</a><a href="#handoffs">Hand-offs</a><a href="#engine">Engine</a><a href="#backend">System</a><a href="#window">Registrations</a><a href="#ground">Audition days</a><a href="#judging">Judging</a><a href="#bridge">Finalists</a><a href="#buzz">Buzz</a><a href="#finale">Finale</a><a href="#mylist">Your list</a><a href="#risks">Risks</a><span class="bar" id="topFill"></span></div>
+
+<main>
+<!-- ============ HERO: BIRD'S EYE ============ -->
+<section class="band hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="sticker">Field plan · Phases 0–4</span>
+        <h1>Mindspace <span>Got Talent ’27</span></h1>
+        <p class="lede">The college fest comes back to two business parks. This page takes you from the bird’s-eye view of both parks down to the audition floor: who owns what, when it happens, and every to-do for the participant phase.</p>
+        <div class="stats" id="stats">
+          <div><b data-to="2">2</b><span>parks, one format</span></div>
+          <div><b data-to="130" data-suf="K+">130K+</b><span>professionals</span></div>
+          <div><b data-to="157">157</b><span>companies</span></div>
+          <div><b data-to="5">5</b><span>categories</span></div>
+          <div><b data-to="50">50</b><span>finalist acts</span></div>
+          <div><b data-to="2">2</b><span>finale nights</span></div>
+        </div>
+        <a class="zoomcue" href="#phases"><span aria-hidden="true">↓</span>Descend to the phases</a>
+      </div>
+      <svg class="map" id="map" viewBox="0 0 560 480" role="img" aria-label="Two Mindspace parks: Airoli East in Mumbai and Madhapur in Hyderabad, sized by campus area">
+        <defs>
+          <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="rgba(244,242,236,.07)" stroke-width="1"/></pattern>
+        </defs>
+        <rect width="560" height="480" fill="url(#grid)"/>
+        <path class="arc" d="M150 170 Q 300 70 400 300" fill="none" stroke="#CFF23F" stroke-width="2.5"/>
+        <text x="300" y="118" fill="#B6B2C2" font-size="14" text-anchor="middle">same rules, same show, 6 days apart</text>
+        <!-- Airoli East: 50 acres -->
+        <circle class="ping" cx="150" cy="170" r="60" fill="none" stroke="#CFF23F" stroke-width="2"/>
+        <circle cx="150" cy="170" r="60" fill="rgba(207,242,63,.14)" stroke="#CFF23F" stroke-width="2"/>
+        <circle cx="150" cy="170" r="6" fill="#CFF23F"/>
+        <text x="150" y="262" fill="#F4F2EC" font-size="24" text-anchor="middle" font-family="Anton, Impact, sans-serif" letter-spacing="1">AIROLI EAST</text>
+        <text x="150" y="284" fill="#B6B2C2" font-size="14" text-anchor="middle">Mumbai · 50 acres · 53 cos · 50K+</text>
+        <text x="150" y="304" fill="#CFF23F" font-size="14" text-anchor="middle" font-weight="600">Finale Wed 13 Jan</text>
+        <!-- Madhapur: 97 acres, r scaled by sqrt(area) -->
+        <circle class="ping" cx="400" cy="300" r="84" fill="none" stroke="#A89BFF" stroke-width="2" style="animation-delay:1.4s"/>
+        <circle cx="400" cy="300" r="84" fill="rgba(91,63,242,.28)" stroke="#A89BFF" stroke-width="2"/>
+        <circle cx="400" cy="300" r="6" fill="#A89BFF"/>
+        <text x="400" y="414" fill="#F4F2EC" font-size="24" text-anchor="middle" font-family="Anton, Impact, sans-serif" letter-spacing="1">MADHAPUR</text>
+        <text x="400" y="436" fill="#B6B2C2" font-size="14" text-anchor="middle">Hyderabad · 97 acres · 104 cos · 80K+</text>
+        <text x="400" y="456" fill="#A89BFF" font-size="14" text-anchor="middle" font-weight="600">Finale Thu 7 Jan</text>
+        <text x="24" y="460" fill="#6E6A7A" font-size="12">Circle area to scale with campus acres</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHASES ============ -->
+<section class="band paper" id="phases">
+  <div class="wrap">
+    <div class="alt-tag"><i>10,000 ft</i> The phases</div>
+    <h2 class="sec">Three phases, run side by side</h2>
+    <p class="lede">The three phases you proposed are the right core. Two short additions close the gaps: a set-up phase that blocks everything, and a close-out. Your phase ends with a signed finalist hand-over on 30 Dec. Tap any bar for details.</p>
+    <div class="gantt" role="region" aria-label="Phase timeline" tabindex="0"><div class="gantt-inner" id="gantt"></div></div>
+    <div class="phase-card" id="phaseCard" aria-live="polite"></div>
+    <div class="verdict">
+      <div><b>Phase 0 blocks everything</b><p>Rules, platform and consent text need sign-off before registrations can open on 25 Nov.</p></div>
+      <div><b>Phase 3 can’t start in January</b><p>The vendor needs artist holds, permits filed by 18 Dec and a certified stage roof. Appoint by 27 Nov.</p></div>
+      <div><b>The finalist bridge is the riskiest hand-off</b><p>Tracks, tech sheets and consents are collected before Christmas and handed over signed on 30 Dec.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HANDOFFS ============ -->
+<section class="band" id="handoffs">
+  <div class="wrap">
+    <div class="alt-tag"><i>5,000 ft</i> Who hands what</div>
+    <h2 class="sec">Your phase feeds the other two</h2>
+    <p class="lede">Phase 2 brings people to your form. You send it counts, footage and finalist stories. On 30 Dec you hand the vendor a signed pack and step out. One Mindspace approver sits across all three.</p>
+    <div class="block two">
+      <svg class="flowmap" id="flowmap" viewBox="0 0 640 400" role="img" aria-label="Hand-offs between Phase 1, Phase 2, Phase 3 and the Mindspace approver"></svg>
+      <div>
+        <div class="seg" role="group" aria-label="Filter hand-offs">
+          <button type="button" data-x="all" aria-pressed="true">All</button>
+          <button type="button" data-x="1to2" aria-pressed="false">You → Phase 2</button>
+          <button type="button" data-x="2to1" aria-pressed="false">Phase 2 → You</button>
+          <button type="button" data-x="1to3" aria-pressed="false">You → Vendor</button>
+        </div>
+        <div class="xfer" id="xfer"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENGINE ============ -->
+<section class="band dark2" id="engine">
+  <div class="wrap">
+    <div class="alt-tag"><i>1,000 ft</i> Phase 1 · participant engine</div>
+    <h2 class="sec">685 acts in. 50 finalists out.</h2>
+    <p class="lede">Phase 1 succeeds when 25 confirmed finalist acts per park reach the vendor with consent, final track, tech sheet and contacts. Everything below works back from that.</p>
+    <div class="block">
+      <div class="seg" role="group" aria-label="Choose park">
+        <button type="button" data-park="both" aria-pressed="true">Both parks</button>
+        <button type="button" data-park="airoli" aria-pressed="false">Airoli East</button>
+        <button type="button" data-park="madhapur" aria-pressed="false">Madhapur</button>
+      </div>
+      <div class="funnel" id="funnel" aria-live="polite"></div>
+      <p class="note">Planning targets: about 0.5% of each park’s workforce registers an act; 80% turn up; the top 8 per category make the shortlist; 5 become finalists and 2 stay on as reserves.</p>
+    </div>
+    <div class="block">
+      <h3 class="sub">Every act follows one path</h3>
+      <div class="steps" id="steps" role="group" aria-label="Participant steps"></div>
+      <div class="step-detail" id="stepDetail" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BACKEND ============ -->
+<section class="band paper" id="backend">
+  <div class="wrap">
+    <div class="alt-tag"><i>500 ft</i> The system behind it</div>
+    <h2 class="sec">One database, eight parts</h2>
+    <p class="lede">Use a no-code stack that can go live in 4 working days. A custom microsite takes 2–3 weeks and would miss the 25 Nov opening.</p>
+    <div class="block two">
+      <svg class="arch" id="arch" viewBox="0 0 560 430" role="img" aria-label="System architecture: every part reads and writes one database"></svg>
+      <div class="tablewrap">
+        <table class="t">
+          <thead><tr><th>Option</th><th>Live in</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr><td>Form + sheet + manual WhatsApp</td><td class="num">1 day</td><td>Breaks above ~300 acts: no slot booking, no audit trail. Fallback only.</td></tr>
+            <tr><td><b>No-code stack</b>: form tool, one database, WhatsApp provider, booking, scoring form</td><td class="num">3–4 days</td><td><b>Recommended.</b> Real database, automation, judge tablets, live dashboard.</td></tr>
+            <tr><td>Custom microsite</td><td class="num">2–3 weeks</td><td>Too slow for 25 Nov. Consider it for MGT ’28.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="block">
+      <h3 class="sub">Status of every act, one value at a time</h3>
+      <div class="pipe" id="pipe"></div>
+    </div>
+    <div class="block">
+      <details class="fold" open>
+        <summary>Registration form fields</summary>
+        <div class="tablewrap"><table class="t" id="fields"><thead><tr><th>Field</th><th>Level</th><th>Required</th><th>Why it’s asked</th></tr></thead><tbody></tbody></table></div>
+        <p class="note" style="margin-top:12px">Emergency contacts, T-shirt sizes and dietary needs are collected from finalists only, so the database holds less personal data. A hidden source field records which QR code or link brought each registration.</p>
+      </details>
+      <details class="fold">
+        <summary>Data protection</summary>
+        <ul class="note" style="display:grid;gap:8px;padding-left:18px;margin:0 0 16px">
+          <li>India’s DPDP Rules were notified on 13 Nov 2025; the consent-notice and breach rules start 18 months later. Follow them anyway.</li>
+          <li>The notice lists the data collected, why, and how to withdraw consent as easily as it was given.</li>
+          <li>If data leaks: tell affected people and Mindspace at once; a full written report within 72 hours.</li>
+          <li>Access by role: the helpdesk sees contacts; judges see only act ID, act name and category.</li>
+          <li>Delete all participant data 90 days after the Airoli East finale (by 13 Apr), except content covered by the release.</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGISTRATION WINDOW ============ -->
+<section class="band paper" id="window" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="alt-tag"><i>200 ft</i> The registration window</div>
+    <h2 class="sec">Ten days to fill the form</h2>
+    <p class="lede">Registrations run 25 Nov to 4 Dec; slot booking 5–6 Dec. The health check on 1 Dec decides whether the window stretches to 6 Dec.</p>
+    <div class="block two">
+      <div>
+        <svg class="chart" id="pace" viewBox="0 0 560 320" role="img" aria-label="Cumulative registration targets per day for both parks"></svg>
+        <div class="legend"><span><i style="background:var(--violet)"></i>Madhapur target (41 a day)</span><span><i style="background:var(--ink)"></i>Airoli East target (28 a day)</span><span><i style="background:var(--crit)"></i>Extend if below 60% of pace</span></div>
+      </div>
+      <div>
+        <p class="kicker">Planning split by category</p>
+        <div class="splitbar" id="split"></div>
+        <div class="tablewrap" style="margin-top:14px"><table class="t" id="splitTable"><thead><tr><th>Category</th><th>Share</th><th class="num">Airoli East</th><th class="num">Madhapur</th></tr></thead><tbody></tbody></table></div>
+        <p class="note" style="margin-top:10px">A starting guess. Replace it with live counts on 4 Dec, when categories are assigned to audition days.</p>
+      </div>
+    </div>
+    <div class="block">
+      <h3 class="sub">Twelve messages, each with a trigger</h3>
+      <p class="note">Submit all twelve for WhatsApp approval in Phase 0. Each also goes by email.</p>
+      <div class="tickets" id="tickets"></div>
+    </div>
+    <div class="block two">
+      <div>
+        <h3 class="sub">Helpdesk</h3>
+        <ul class="note" style="display:grid;gap:8px;padding-left:18px;margin:14px 0 0">
+          <li>One WhatsApp business number with a park menu, plus one email address.</li>
+          <li>Mon–Sat 10:00–19:00; on audition days, on site 11:00–20:30.</li>
+          <li>First reply within 2 working hours, resolved within 24.</li>
+          <li>Helpdesk → campus coordinator → you. Rules disputes go to you and the Mindspace approver.</li>
+          <li>Every query is logged and tagged so the FAQ improves daily.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub">Top questions, ready answers</h3>
+        <div id="faq" style="margin-top:8px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GROUND: AUDITION DAYS ============ -->
+<section class="band" id="ground">
+  <div class="wrap">
+    <div class="alt-tag"><i>Ground</i> Audition days</div>
+    <h2 class="sec">One category family per window</h2>
+    <p class="lede">Each day has a lunch window (12:00–15:00) and an after-work window (17:00–20:00). Grouping by category means the right judges sit and the backline is set up once.</p>
+    <div class="block">
+      <div class="seg" role="group" aria-label="Choose park for the schedule">
+        <button type="button" data-sched="airoli" aria-pressed="true">Airoli East · 4 days</button>
+        <button type="button" data-sched="madhapur" aria-pressed="false">Madhapur · 6 days</button>
+      </div>
+      <div class="sched" id="sched"></div>
+      <div class="legend" id="schedLegend"></div>
+      <p class="note">Bar length is minutes used out of the 180-minute window, at slot lengths of 5 (Solo Dance, Vocal), 6 (Stand-up), 7 (Group Dance) and 8 minutes (Instrumental). The plan is rebuilt from live counts on 4 Dec.</p>
+    </div>
+    <div class="block">
+      <h3 class="sub">A day on the floor</h3>
+      <div class="dayline" id="dayline"></div>
+      <div class="dl-detail" id="dlDetail" aria-live="polite"></div>
+    </div>
+    <div class="block two">
+      <div>
+        <h3 class="sub">Zone layout</h3>
+        <p class="note" style="margin:8px 0 14px">One-way flow. Tap a zone.</p>
+        <svg class="plan" id="plan" viewBox="0 0 640 430" role="img" aria-label="Audition zone floor plan with one-way flow from queue to exit"></svg>
+        <p class="plan-note" id="planNote" aria-live="polite" style="margin-top:12px"></p>
+      </div>
+      <div>
+        <h3 class="sub">Each act, step by step</h3>
+        <ol class="note" style="display:grid;gap:10px;padding-left:20px;margin:16px 0 0;color:var(--fg)">
+          <li>Arrives 20 minutes early; QR scan and ID check at the desk.</li>
+          <li>Gets a sticker with the act ID; waits in the holding area.</li>
+          <li>Stage manager confirms the track is cued, then calls the act to the wings two acts ahead.</li>
+          <li>Host introduces them in 15 seconds: name, company, category.</li>
+          <li>They perform facing a countdown screen. Amber light at 30 seconds left; music fades 15 seconds past the limit.</li>
+          <li>No spoken feedback; judges write comments. This keeps the day on time.</li>
+          <li>They leave by the opposite side; the thank-you message goes out automatically.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="block">
+      <details class="fold" open>
+        <summary>Kit list per zone</summary>
+        <ul class="checks" data-list="kit" id="kit"></ul>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JUDGING ============ -->
+<section class="band paper" id="judging">
+  <div class="wrap">
+    <div class="alt-tag"><i>The desk</i> Judging and results</div>
+    <h2 class="sec">Same panel, signed results</h2>
+    <p class="lede">Three judges score a whole category within a park. Five people sign the results. Finalists hear personally before anything goes public on 18 Dec.</p>
+    <div class="block two">
+      <div class="calc">
+        <p class="kicker" style="color:var(--fg-dim)">Try the rubric</p>
+        <div class="cats" id="calcCats"></div>
+        <div id="sliders" style="display:grid;gap:14px"></div>
+        <div class="score"><b class="num" id="scoreOut">70</b><span id="scoreNote">out of 100 for one judge. An act’s score is the average of three.</span></div>
+      </div>
+      <div>
+        <h3 class="sub">Rules that keep it fair</h3>
+        <ul style="display:grid;gap:10px;padding-left:18px;margin:16px 0 0">
+          <li><b>One panel per category per park.</b> Book judges for every window of their category, or scores stop being comparable.</li>
+          <li><b>Calibrate first.</b> All three score 3 sample clips; more than 15 points apart, they agree what a 5 and an 8 look like.</li>
+          <li><b>Conflicts.</b> A judge who knows a performer or shares their company abstains; the other two are averaged.</li>
+          <li><b>No gaps.</b> The tablet won’t move on until all three scores are in.</li>
+          <li><b>Ties at the cut-off.</b> Higher first-criterion score, then the head judge re-watches the video.</li>
+          <li><b>Locked nightly.</b> Scores go read-only at 20:30; every edit is logged.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="block two">
+      <div>
+        <h3 class="sub">From scores to finalists</h3>
+        <ol class="timeline" style="margin-top:14px">
+          <li><b>Last window</b><span>The system ranks every act in the category.</span></li>
+          <li><b>Shortlist</b><span>Top 8 per category per park.</span></li>
+          <li><b>16–17 Dec</b><span>Review call: judges re-watch places 4–10 and confirm 5 finalists and 2 reserves.</span></li>
+          <li><b>Sign-off</b><span>Three judges, you and the Mindspace approver sign the sheet.</span></li>
+          <li><b>18 Dec 10:00</b><span>Personal messages to every act.</span></li>
+          <li><b>18 Dec 12:00</b><span>Phase 2 goes public, never before the personal messages.</span></li>
+        </ol>
+      </div>
+      <div>
+        <h3 class="sub">Appeals</h3>
+        <ol class="timeline" style="margin-top:14px">
+          <li><b>48 hours</b><span>Open until 20 Dec 12:00, by email only.</span></li>
+          <li><b>Process only</b><span>Wrong track, timing fault, technical failure. Not judges’ taste.</span></li>
+          <li><b>24 hours</b><span>Head judge and you re-watch the video and reply. The decision is final.</span></li>
+          <li><b>Proven error</b><span>A video re-audition, scored by the same panel.</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINALIST BRIDGE ============ -->
+<section class="band lime" id="bridge">
+  <div class="wrap">
+    <div class="alt-tag"><i>Hand-off</i> The finalist bridge</div>
+    <h2 class="sec">Everything in before Christmas</h2>
+    <p class="lede">Collect from finalists and reserves by 24 Dec, then hand the vendor a signed pack on 30 Dec. After that, the vendor’s stage manager takes over finalist messages on the same WhatsApp number.</p>
+    <div class="block two">
+      <ol class="timeline" id="bridgeTl"></ol>
+      <div>
+        <p class="kicker">Each finalist and reserve submits by 24 Dec</p>
+        <ul class="checks" data-list="pack" id="pack" style="margin-top:8px"></ul>
+      </div>
+    </div>
+    <div class="block">
+      <h3 class="sub">The hand-over pack</h3>
+      <div class="three" id="handover" style="margin-top:6px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHASE 2 BUZZ ============ -->
+<section class="band violet" id="buzz">
+  <div class="wrap">
+    <div class="alt-tag"><i>Phase 2</i> Marketing and buzz · Mindspace in-house</div>
+    <h2 class="sec">Fill the form, then fill the lawn</h2>
+    <p class="lede">Until 4 Dec, Phase 2 has one job: registrations. After that it builds the finale crowd. Your part is the inputs it needs from Phase 1.</p>
+    <div class="beats" id="beats"></div>
+    <div class="block two">
+      <div class="tablewrap">
+        <h3 class="sub" style="margin-bottom:12px">Channels</h3>
+        <table class="t" id="channels"><thead><tr><th>Channel</th><th>Use</th><th>Rhythm</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div>
+        <h3 class="sub" style="margin-bottom:12px">Stories from real people</h3>
+        <div style="display:grid;gap:10px" id="ideas"></div>
+        <p class="note" style="color:#DCD6FF;margin-top:14px">Give every channel its own QR code or link. Phase 1 records the source on each registration, so by 1 Dec you know which channel works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHASE 3 FINALE ============ -->
+<section class="band" id="finale">
+  <div class="wrap">
+    <div class="alt-tag"><i>Phase 3</i> Finale and concert · event vendor</div>
+    <h2 class="sec">Pick on proof, not on pitch</h2>
+    <p class="lede">Appoint one lead vendor for both cities by 27 Nov. Mindspace names its own show lead for Phase 3, since you step out on 30 Dec.</p>
+    <div class="block two">
+      <div>
+        <h3 class="sub" style="margin-bottom:12px">Scorecard</h3>
+        <div id="scorecard"></div>
+        <p class="note" style="margin-top:12px">Public staff ratings describe employees, not clients, so two client reference calls per vendor carry the weight.</p>
+      </div>
+      <div>
+        <h3 class="sub" style="margin-bottom:12px">Vendor scope</h3>
+        <ul style="display:grid;gap:8px;padding-left:18px;margin:0;color:var(--fg-dim)">
+          <li>Stage, roof, LED, sound, lights, backline and power at both parks</li>
+          <li>Run of show, rehearsals from your hand-over pack, show calling</li>
+          <li>Emcee, finale judges, trophies, the winner moment</li>
+          <li>Headline act booking, riders, travel and hospitality</li>
+          <li>Audience wristband sign-ups by company, entry scans</li>
+          <li>Security, medical, fire safety and the crowd plan</li>
+          <li>Permits: police and loudspeaker, fire, electrical, performance and music licences</li>
+          <li>Coverage, aftermovie and the report within 7 working days</li>
+        </ul>
+      </div>
+    </div>
+    <div class="block">
+      <h3 class="sub">Gates the Mindspace show lead checks</h3>
+      <div class="gates" id="gates"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MY LIST ============ -->
+<section class="band paper" id="mylist">
+  <div class="wrap">
+    <div class="alt-tag"><i>Your list</i> Phase 1 to-dos</div>
+    <h2 class="sec">Everything you tick off</h2>
+    <p class="lede">Week by week, from today to the hand-over. Ticks are saved in this browser only. The two items that cannot slip: WhatsApp business verification this week, and hiring the backend builder by 16 Nov.</p>
+    <div class="listhead">
+      <div class="ring"><svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="34" fill="none" stroke="rgba(23,22,27,.12)" stroke-width="10"/><circle id="ringArc" cx="42" cy="42" r="34" fill="none" stroke="#5B3FF2" stroke-width="10" stroke-linecap="round" stroke-dasharray="213.6" stroke-dashoffset="213.6" transform="rotate(-90 42 42)"/></svg><div><b class="num" id="ringPct">0%</b><div class="note" id="ringTxt">0 of 0 done</div></div></div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <div class="seg" role="group" aria-label="Filter weeks">
+          <button type="button" data-f="all" aria-pressed="true">All</button>
+          <button type="button" data-f="open" aria-pressed="false">Open only</button>
+          <button type="button" data-f="now" aria-pressed="false">This week</button>
+        </div>
+        <button type="button" class="resetbtn" id="resetBtn">Clear ticks</button>
+      </div>
+    </div>
+    <div class="weeks" id="weeks"></div>
+  </div>
+</section>
+
+<!-- ============ RISKS ============ -->
+<section class="band dark2" id="risks">
+  <div class="wrap">
+    <div class="alt-tag"><i>Fail-safes</i> Risks</div>
+    <h2 class="sec">What could slip, and the response</h2>
+    <p class="lede">Each risk has an early sign you can see on the daily dashboard and a response agreed in advance.</p>
+    <div class="risks" id="riskList"></div>
+  </div>
+</section>
+</main>
+<footer class="band foot"><div class="wrap">MGT ’27 field plan · draft of 4 Nov 2026 · built from the Mindspace agency brief and the phased plan. Dates assume an award by 20 Nov. Financials and vendor names are kept out of this page by design.</div></footer>
+
+<script>
+(function () {
+  "use strict";
+  var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function el(tag, attrs, html) { var e = document.createElement(tag); if (attrs) for (var k in attrs) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; }
+  function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k) || "null"); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
+  function pressGroup(group, btn) { $$("button", group).forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); }); }
+
+  /* ---------- categories ---------- */
+  var CATS = {
+    SD: { name: "Solo Step", full: "Solo Dance", color: "var(--c-sd)", hex: "#CFF23F", slot: 5, share: .25, w: [["Technique", 30], ["Choreography", 25], ["Musicality", 25], ["Presence", 20]] },
+    GD: { name: "Crew Battle", full: "Group Dance", color: "var(--c-gd)", hex: "#8C7BFF", slot: 7, share: .15, w: [["Sync", 30], ["Choreography", 25], ["Energy", 25], ["Formations", 20]] },
+    V:  { name: "Mic Drop", full: "Vocal", color: "var(--c-v)", hex: "#FF7FB0", slot: 5, share: .30, w: [["Pitch and tone", 35], ["Expression", 25], ["Rhythm", 20], ["Arrangement", 20]] },
+    I:  { name: "Backline", full: "Instrumental", color: "var(--c-i)", hex: "#45C9F2", slot: 8, share: .15, w: [["Technique", 35], ["Musicality", 25], ["Arrangement", 20], ["Tightness", 20]] },
+    SU: { name: "Open Mic", full: "Stand-up", color: "var(--c-su)", hex: "#FFB547", slot: 6, share: .15, w: [["Writing", 35], ["Delivery", 30], ["Crowd response", 20], ["Originality", 15]] },
+    MK: { name: "Make-ups", full: "Make-ups and overflow", color: "var(--c-mk)", hex: "#6E6A7A" }
+  };
+
+  /* ---------- hero counters (start from final value at rest) ---------- */
+  if (!RM) {
+    $$("#stats b").forEach(function (b, i) {
+      var to = +b.dataset.to, suf = b.dataset.suf || "", t0 = null;
+      function step(ts) { if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / 1100); var e = 1 - Math.pow(1 - p, 3); b.textContent = Math.round(to * e) + suf; if (p < 1) requestAnimationFrame(step); }
+      setTimeout(function () { requestAnimationFrame(step); }, 120 * i);
+    });
+  }
+
+  /* ---------- phase gantt ---------- */
+  var D0 = Date.parse("2026-11-05"), D1 = Date.parse("2027-01-31");
+  function pct(d) { return ((Date.parse(d) - D0) / (D1 - D0)) * 100; }
+  function fmt(d) { var m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]; return +d.slice(8) + " " + m[+d.slice(5, 7) - 1]; }
+  var PHASES = [
+    { id: "p0", name: "Phase 0 · Set-up", start: "2026-11-05", end: "2026-11-24", owner: "You + Mindspace marketing", role: "Lead", mine: false,
+      what: ["Award and go decision", "Rules, consent text and Office Cup points approved", "Tool stack chosen and backend builder hired", "Recces at both parks", "Phase 3 vendor brief issued"] },
+    { id: "reg", name: "Phase 1 · Registrations", start: "2026-11-25", end: "2026-12-06", owner: "You", role: "Own it", mine: true,
+      what: ["Microsite live 25 Nov, 09:00", "Daily 18:00 snapshot to Mindspace and Phase 2", "Health check 1 Dec; extend to 6 Dec if under 60% of pace", "Slot booking 5–6 Dec"] },
+    { id: "aud", name: "Phase 1 · Auditions", start: "2026-12-08", end: "2026-12-15", owner: "You", role: "Own it", mine: true,
+      what: ["Airoli East 8–11 Dec, Madhapur 8–15 Dec", "Two windows a day: lunch and after work", "Scores locked and audited nightly", "Footage to Phase 2 every evening"] },
+    { id: "bridge", name: "Phase 1 · Finalist bridge", start: "2026-12-18", end: "2026-12-30", owner: "You", role: "Own it", mine: true,
+      what: ["Results 18 Dec; confirmations by 21 Dec", "Reserves promoted 22 Dec", "Finalist packs due 24 Dec", "Hand-over signed 30 Dec"] },
+    { id: "p2", name: "Phase 2 · Buzz", start: "2026-11-18", end: "2027-01-31", owner: "Mindspace in-house", role: "Inputs only", mine: false,
+      what: ["Tease from 18 Nov, launch 25 Nov", "Office Cup board on campus screens", "Audition reels and finalist stories", "Finale promotion and aftermovie"] },
+    { id: "p3a", name: "Phase 3 · Vendor planning", start: "2026-11-27", end: "2027-01-03", owner: "Event vendor", role: "None", mine: false,
+      what: ["Appointed by 27 Nov", "Artist contract by 4 Dec", "Renders and safety plan approved 11 Dec", "Permits filed by 18 Dec"] },
+    { id: "p3b", name: "Phase 3 · Builds and shows", start: "2027-01-04", end: "2027-01-13", owner: "Event vendor", role: "None", mine: false,
+      what: ["Madhapur build 4–6 Jan, finale Thu 7 Jan", "Airoli East build 10–12 Jan, finale Wed 13 Jan", "Certificates in hand before each show"] },
+    { id: "p4", name: "Phase 4 · Close-out", start: "2027-01-14", end: "2027-01-29", owner: "Mindspace + vendor", role: "Participant data only", mine: false,
+      what: ["Report within 7 working days (by 22 Jan)", "Prize payouts and certificates", "Your part: numbers for the report; data deleted by 13 Apr"] }
+  ];
+  (function gantt() {
+    var g = $("#gantt");
+    var axis = el("div", { class: "g-axis" }); axis.appendChild(el("div"));
+    var ticks = el("div", { class: "g-ticks" });
+    ["2026-11-05", "2026-11-19", "2026-12-03", "2026-12-17", "2026-12-31", "2027-01-14", "2027-01-28"].forEach(function (d) { var s = el("span", null, fmt(d)); s.style.left = pct(d) + "%"; ticks.appendChild(s); });
+    axis.appendChild(ticks); g.appendChild(axis);
+    PHASES.forEach(function (p, i) {
+      var row = el("div", { class: "g-row" });
+      var nm = el("button", { class: "g-name", type: "button" }, "<b>" + p.name + "</b><small>" + fmt(p.start) + " – " + fmt(p.end) + "</small>");
+      var tr = el("div", { class: "g-track" });
+      [14, 28, 42, 56, 70].forEach(function (dd) { var gl = el("div", { class: "g-grid" }); gl.style.left = (dd / ((D1 - D0) / 864e5) * 100) + "%"; tr.appendChild(gl); });
+      var bar = el("div", { class: "g-bar" + (p.mine ? " mine" : ""), role: "button", tabindex: "0", "aria-label": p.name + ", " + fmt(p.start) + " to " + fmt(p.end) });
+      bar.style.left = pct(p.start) + "%"; bar.style.width = Math.max(1.4, pct(p.end) - pct(p.start)) + "%";
+      tr.appendChild(bar);
+      if (p.id === "bridge") { var dia = el("div", { class: "g-dia", title: "Hand-over 30 Dec" }); dia.style.left = pct("2026-12-30") + "%"; tr.appendChild(dia); }
+      function sel() { $$(".g-bar", g).forEach(function (b) { b.classList.remove("sel"); }); bar.classList.add("sel"); showPhase(p); }
+      nm.addEventListener("click", sel); bar.addEventListener("click", sel);
+      bar.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sel(); } });
+      row.appendChild(nm); row.appendChild(tr); g.appendChild(row);
+      if (i === 1) bar.classList.add("sel");
+    });
+    var now = Date.now();
+    if (now > D0 && now < D1) {
+      var trs = $$(".g-track", g), first = trs[0];
+      var nl = el("div", { class: "g-now" }, "<span>Today</span>"); nl.style.left = ((now - D0) / (D1 - D0) * 100) + "%";
+      first.appendChild(nl);
+    }
+    showPhase(PHASES[1]);
+  })();
+  function showPhase(p) {
+    var c = $("#phaseCard");
+    c.innerHTML = "<div><h3>" + p.name + "</h3><div class='chips'><span class='chip lime'>" + fmt(p.start) + " – " + fmt(p.end) + "</span><span class='chip'>Owner: " + p.owner + "</span><span class='chip violet'>Your role: " + p.role + "</span></div></div><ul>" + p.what.map(function (w) { return "<li>" + w + "</li>"; }).join("") + "</ul>";
+  }
+
+  /* ---------- hand-offs ---------- */
+  var XFER = [
+    { k: "2to1", what: "Brand kit, logo lock-ups and registration-page copy", when: "by 23 Nov" },
+    { k: "1to2", what: "Rules, FAQ and deadlines copy", when: "23 Nov" },
+    { k: "1to2", what: "Registration counts by park, category, company and source", when: "daily 18:00" },
+    { k: "1to2", what: "Office Cup points", when: "daily" },
+    { k: "1to2", what: "Category gaps alert", when: "1 Dec" },
+    { k: "2to1", what: "Audition-zone signage artwork", when: "by 30 Nov" },
+    { k: "1to2", what: "Audition footage, labelled by act ID, release checked", when: "nightly 8–15 Dec" },
+    { k: "1to2", what: "Five standout act IDs per audition day", when: "daily 8–15 Dec" },
+    { k: "1to2", what: "Finalist list", when: "18 Dec, 10:00" },
+    { k: "1to2", what: "Finalist bios, photos and shoot availability", when: "21–24 Dec" },
+    { k: "1to3", what: "Signed hand-over pack: roster, act folders, reserves, rehearsal draft, Office Cup standings", when: "30 Dec" }
+  ];
+  var DIRL = { "1to2": "You → Phase 2", "2to1": "Phase 2 → You", "1to3": "You → Vendor" };
+  function renderXfer(f) {
+    var x = $("#xfer"); x.innerHTML = "";
+    XFER.filter(function (r) { return f === "all" || r.k === f; }).forEach(function (r) {
+      x.appendChild(el("div", { class: "xfer-row" }, "<span class='dir'>" + DIRL[r.k] + "</span><span>" + r.what + "</span><span class='when'>" + r.when + "</span>"));
+    });
+    $$("#flowmap .lnk").forEach(function (l) { l.style.opacity = (f === "all" || l.dataset.k === f) ? 1 : .15; });
+  }
+  (function flowmap() {
+    var s = $("#flowmap");
+    s.innerHTML =
+      "<defs><marker id='ah' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0 0L10 5L0 10z' fill='#CFF23F'/></marker><marker id='ahv' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0 0L10 5L0 10z' fill='#A89BFF'/></marker></defs>" +
+      // nodes
+      "<g class='node' data-x='1to2'><rect class='box' x='220' y='150' width='200' height='100' rx='6' fill='rgba(91,63,242,.35)' stroke='#A89BFF' stroke-width='2'/><text x='320' y='190' text-anchor='middle' fill='#F4F2EC' font-size='22' font-family='Anton, Impact, sans-serif' letter-spacing='.5'>PHASE 1 · YOU</text><text x='320' y='214' text-anchor='middle' fill='#DCD6FF' font-size='13'>participants, auditions,</text><text x='320' y='231' text-anchor='middle' fill='#DCD6FF' font-size='13'>finalists</text></g>" +
+      "<g class='node' data-x='2to1'><rect class='box' x='20' y='20' width='190' height='86' rx='6' fill='none' stroke='#F4F2EC' stroke-opacity='.5' stroke-width='1.5'/><text x='115' y='56' text-anchor='middle' fill='#F4F2EC' font-size='19' font-family='Anton, Impact, sans-serif' letter-spacing='.5'>PHASE 2 · BUZZ</text><text x='115' y='80' text-anchor='middle' fill='#B6B2C2' font-size='13'>Mindspace in-house</text></g>" +
+      "<g class='node' data-x='1to3'><rect class='box' x='430' y='20' width='190' height='86' rx='6' fill='none' stroke='#F4F2EC' stroke-opacity='.5' stroke-width='1.5'/><text x='525' y='56' text-anchor='middle' fill='#F4F2EC' font-size='19' font-family='Anton, Impact, sans-serif' letter-spacing='.5'>PHASE 3 · FINALE</text><text x='525' y='80' text-anchor='middle' fill='#B6B2C2' font-size='13'>event vendor</text></g>" +
+      "<g class='node' data-x='all'><rect class='box' x='220' y='310' width='200' height='70' rx='6' fill='none' stroke='#CFF23F' stroke-width='1.5' stroke-dasharray='5 5'/><text x='320' y='340' text-anchor='middle' fill='#CFF23F' font-size='16' font-weight='700'>Mindspace approver</text><text x='320' y='360' text-anchor='middle' fill='#B6B2C2' font-size='13'>48-hour sign-offs</text></g>" +
+      // links
+      "<g class='lnk' data-k='2to1'><path d='M115 106 V 180 H 214' fill='none' stroke='#A89BFF' stroke-width='2' marker-end='url(#ahv)'/><text x='28' y='150' fill='#A89BFF' font-size='13'>brand kit,</text><text x='28' y='166' fill='#A89BFF' font-size='13'>signage art</text></g>" +
+      "<g class='lnk' data-k='1to2'><path d='M250 150 V 66 H 216' fill='none' stroke='#CFF23F' stroke-width='2' marker-end='url(#ah)'/><text x='258' y='92' fill='#CFF23F' font-size='13'>counts, footage,</text><text x='258' y='108' fill='#CFF23F' font-size='13'>finalist stories</text></g>" +
+      "<g class='lnk' data-k='1to3'><path d='M420 200 H 525 V 112' fill='none' stroke='#CFF23F' stroke-width='2.5' marker-end='url(#ah)'/><text x='434' y='226' fill='#CFF23F' font-size='13'>signed pack,</text><text x='434' y='242' fill='#CFF23F' font-size='13'>30 Dec</text></g>" +
+      "<g class='lnk' data-k='all'><path d='M320 306 V 256' fill='none' stroke='#CFF23F' stroke-width='1.5' stroke-dasharray='4 4'/></g>";
+    $$(".node", s).forEach(function (n) { n.addEventListener("click", function () { var b = $("#handoffs .seg button[data-x='" + n.dataset.x + "']"); if (b) b.click(); }); });
+    $$("#handoffs .seg button").forEach(function (b) { b.addEventListener("click", function () { pressGroup(b.parentNode, b); renderXfer(b.dataset.x); }); });
+    renderXfer("all");
+  })();
+
+  /* ---------- funnel ---------- */
+  var PARK = { airoli: { reg: 275, aud: 220, short: 40, fin: 25, res: 10 }, madhapur: { reg: 410, aud: 328, short: 40, fin: 25, res: 10 } };
+  function renderFunnel(k) {
+    var d = k === "both" ? { reg: 685, aud: 548, short: 80, fin: 50, res: 20 } : PARK[k];
+    var rows = [["Registered acts", "by 4 Dec", d.reg, ""], ["Audition", "80% turn up", d.aud, ""], ["Shortlist", "top 8 per category", d.short, ""], ["Finalists", "top 5 per category", d.fin, "l"], ["Reserves", "next 2 per category", d.res, ""]];
+    var f = $("#funnel"); f.innerHTML = "";
+    rows.forEach(function (r) {
+      var row = el("div", { class: "f-row" }, "<div class='lab'>" + r[0] + "<small>" + r[1] + "</small></div>");
+      var b = el("div", { class: "f-bar num " + r[3] }, r[2]); b.style.width = Math.max(6, r[2] / d.reg * 100) + "%";
+      row.appendChild(b); f.appendChild(row);
+    });
+  }
+  $$("#engine .seg button").forEach(function (b) { b.addEventListener("click", function () { pressGroup(b.parentNode, b); renderFunnel(b.dataset.park); }); });
+  renderFunnel("both");
+
+  /* ---------- steps ---------- */
+  var STEPS = [
+    ["Register", "form + consent", "Participant", "Registration form", "1 · Registration received", "Category, act name, team, company, work email or ID photo, WhatsApp number, three consent ticks. Gets an act ID like AIR-GD-014."],
+    ["Verify", "work email or ID", "Helpdesk", "Database", "2 · ID needed (if no work email)", "Tenant email domains verify automatically. Everyone else uploads a company ID photo, checked within 24 hours."],
+    ["Book slot", "on category day", "Participant", "Slot booking", "3 · Booking open, 4 · Slot confirmed", "Opens 5 Dec after days are assigned by category. 48 hours to book; the rest are auto-assigned."],
+    ["Upload track", "48 h before", "Participant", "Track upload", "5 · Upload your track", "WAV or 320 kbps MP3, named with the act ID, into the park and category folder."],
+    ["Reminders", "T-24h and T-2h", "System", "WhatsApp provider", "6 · Tomorrow’s audition, 7 · See you soon", "Time, map pin, what to bring, and a request to report 20 minutes early."],
+    ["Check-in", "QR + ID check", "Check-in staff", "QR scanner", "—", "Scan, ID check, act-ID sticker, holding area. A no-show gets one make-up slot on the last day (template 9)."],
+    ["Perform", "timed, recorded", "Stage manager", "Recording crew", "8 · Thank you", "Countdown in view; amber at 30 s left; music fades 15 s past the limit. Every act recorded and labelled by act ID."],
+    ["Score", "3 judges, tablets", "Judges", "Scoring form", "—", "Weighted rubric out of 100 per judge; average of three. Locked at 20:30 each night."],
+    ["Shortlist", "top 8 to top 5", "Judges + you", "Dashboard", "—", "Review call 16–17 Dec on places 4–10; sign-off by three judges, you and the Mindspace approver."],
+    ["Results", "18 Dec, 10:00", "You", "WhatsApp + email", "10 · Finalist, 11 · Reserve, 12 · Thank you for auditioning", "Personal messages first; Phase 2 goes public at 12:00."],
+    ["Finalist pack", "by 24 Dec", "Finalists", "Pack form", "—", "Track, cue sheet, tech sheet, props, members, emergency contacts, bio and photo. Handed to the vendor on 30 Dec."]
+  ];
+  (function steps() {
+    var g = $("#steps");
+    STEPS.forEach(function (s, i) {
+      var b = el("button", { type: "button", "aria-pressed": i === 0 ? "true" : "false" }, "<b>" + s[0] + "</b><small>" + s[1] + "</small>");
+      b.addEventListener("click", function () { pressGroup(g, b); showStep(i); });
+      g.appendChild(b);
+    });
+    showStep(0);
+  })();
+  function showStep(i) {
+    var s = STEPS[i];
+    $("#stepDetail").innerHTML = "<h4>" + s[0] + "</h4><p>" + s[5] + "</p><dl class='kv'><dt>Who acts</dt><dd>" + s[2] + "</dd><dt>System part</dt><dd>" + s[3] + "</dd><dt>Message</dt><dd>" + s[4] + "</dd></dl>";
+  }
+
+  /* ---------- architecture ---------- */
+  (function arch() {
+    var s = $("#arch");
+    var parts = [
+      ["Registration form", "mobile, 3 languages", 20, 20], ["Slot booking", "after verification", 20, 120], ["QR check-in", "phone scanner", 20, 220], ["Track upload", "named by act ID", 20, 320],
+      ["WhatsApp provider", "12 approved templates", 380, 20], ["Scoring form", "tablets, locked nightly", 380, 120], ["Live dashboard", "you + Mindspace", 380, 220], ["Hand-over export", "finalist pack, 30 Dec", 380, 320]
+    ];
+    var h = "<defs><marker id='aa' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M0 0L10 5L0 10z' fill='#55525F'/></marker></defs>";
+    h += "<rect x='210' y='130' width='140' height='170' rx='6' fill='#5B3FF2'/><text x='280' y='196' text-anchor='middle' fill='#fff' font-family='Anton, Impact, sans-serif' font-size='24' letter-spacing='.5'>ONE</text><text x='280' y='222' text-anchor='middle' fill='#fff' font-family='Anton, Impact, sans-serif' font-size='24' letter-spacing='.5'>DATABASE</text><text x='280' y='248' text-anchor='middle' fill='#DCD6FF' font-size='12.5'>acts · people · slots</text><text x='280' y='265' text-anchor='middle' fill='#DCD6FF' font-size='12.5'>scores · messages</text>";
+    parts.forEach(function (p) {
+      var x = p[2], y = p[3], left = x < 200;
+      h += "<rect x='" + x + "' y='" + y + "' width='160' height='72' rx='4' fill='#F1EFEA' stroke='#17161B' stroke-width='1.5'/><text x='" + (x + 12) + "' y='" + (y + 30) + "' fill='#17161B' font-size='14.5' font-weight='700'>" + p[0] + "</text><text x='" + (x + 12) + "' y='" + (y + 52) + "' fill='#55525F' font-size='12.5'>" + p[1] + "</text>";
+      var y0 = y + 36, ty = Math.min(290, Math.max(140, y0));
+      if (left) h += "<path d='M" + (x + 160) + " " + y0 + " C 195 " + y0 + ", 195 " + ty + ", 208 " + ty + "' fill='none' stroke='#55525F' stroke-width='1.5' marker-end='url(#aa)'/>";
+      else h += "<path d='M352 " + ty + " C 365 " + ty + ", 365 " + y0 + ", " + (x - 2) + " " + y0 + "' fill='none' stroke='#55525F' stroke-width='1.5' marker-end='url(#aa)'/>";
+    });
+    s.innerHTML = h;
+    var pipe = ["Registered", "Verified", "Slot booked", "Checked in", "Scored", "Shortlisted", "Finalist", "Confirmed", "Pack complete", "Handed over"];
+    $("#pipe").innerHTML = pipe.map(function (p, i) { return "<span" + (i === pipe.length - 1 ? " class='end'" : "") + ">" + p + "</span>" + (i < pipe.length - 1 ? "<i aria-hidden='true'>→</i>" : ""); }).join("");
+    var F = [
+      ["Act ID (auto, e.g. AIR-GD-014)", "Act", "Auto", "Joins every file, score and message"], ["Park and category", "Act", "Yes", "Routing and scheduling"],
+      ["Act name, team size, member names", "Act", "Yes", "Host intro, results, team limits"], ["Company and building", "Person", "Yes", "Office Cup and verification"],
+      ["Work email, or company ID photo", "Person", "Yes", "Proves they work in the park"], ["Mobile on WhatsApp (lead)", "Person", "Yes", "Confirmations and reminders"],
+      ["Track title, language, length", "Act", "Dance, music", "Playback and music licences"], ["Instruments brought, backline needed", "Act", "Instrumental", "AV plan per day"],
+      ["Preferred window: lunch or after work", "Act", "Yes", "Slot booking"], ["60-second video link", "Act", "Optional", "Pre-screen only if registrations overflow"],
+      ["Age 18+ confirmation", "Person", "Yes", "Eligibility"], ["Consents: rules, image and video release, data use", "Person", "Yes, three ticks", "Clean consent record"]
+    ];
+    $("#fields tbody").innerHTML = F.map(function (r) { return "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td><td>" + r[3] + "</td></tr>"; }).join("");
+  })();
+
+  /* ---------- pace chart ---------- */
+  (function pace() {
+    var s = $("#pace"), W = 560, H = 320, L = 52, R = 20, T = 20, B = 44;
+    var days = ["25 Nov", "26", "27", "28", "29", "30", "1 Dec", "2", "3", "4 Dec"];
+    var max = 450, X = function (i) { return L + i / 9 * (W - L - R); }, Y = function (v) { return T + (1 - v / max) * (H - T - B); };
+    var h = "";
+    [0, 100, 200, 300, 400].forEach(function (v) { h += "<line x1='" + L + "' x2='" + (W - R) + "' y1='" + Y(v) + "' y2='" + Y(v) + "' stroke='rgba(23,22,27,.12)'/><text x='" + (L - 8) + "' y='" + (Y(v) + 4) + "' text-anchor='end'>" + v + "</text>"; });
+    days.forEach(function (d, i) { if (i % 3 === 0 || i === 9) h += "<text x='" + X(i) + "' y='" + (H - B + 20) + "' text-anchor='middle'>" + d + "</text>"; });
+    function line(total, col, w) { var pts = []; for (var i = 0; i < 10; i++) pts.push(X(i) + "," + Y(total * (i + 1) / 10)); return "<polyline points='" + pts.join(" ") + "' fill='none' stroke='" + col + "' stroke-width='" + w + "'/>"; }
+    h += line(410, "#5B3FF2", 3) + line(275, "#17161B", 3);
+    // health check 1 Dec (index 6): 60% of cumulative pace
+    var mx = X(6), mTarget = 410 * .7 * .6, aTarget = 275 * .7 * .6;
+    h += "<line x1='" + mx + "' x2='" + mx + "' y1='" + T + "' y2='" + (H - B) + "' stroke='#FF6A6A' stroke-dasharray='4 4' stroke-width='1.5'/>";
+    h += "<circle cx='" + mx + "' cy='" + Y(mTarget) + "' r='6' fill='#FF6A6A'/><circle cx='" + mx + "' cy='" + Y(aTarget) + "' r='6' fill='#FF6A6A'/>";
+    h += "<text x='" + (mx + 10) + "' y='" + (Y(mTarget) + 4) + "' style='fill:#B23B3B;font-weight:700'>" + Math.round(mTarget) + "</text><text x='" + (mx + 10) + "' y='" + (Y(aTarget) + 4) + "' style='fill:#B23B3B;font-weight:700'>" + Math.round(aTarget) + "</text>";
+    h += "<text x='" + (mx - 6) + "' y='" + (T + 12) + "' text-anchor='end' style='fill:#B23B3B;font-weight:700'>1 Dec health check</text>";
+    h += "<text x='" + (X(9) - 4) + "' y='" + (Y(410) - 8) + "' text-anchor='end' style='fill:#5B3FF2;font-weight:700'>410</text><text x='" + (X(9) - 4) + "' y='" + (Y(275) - 8) + "' text-anchor='end' style='fill:#17161B;font-weight:700'>275</text>";
+    h += "<text x='" + L + "' y='" + (T - 6) + "' >Registered acts, cumulative target</text>";
+    s.innerHTML = h;
+    var order = ["SD", "GD", "V", "I", "SU"], A = { SD: 69, GD: 41, V: 83, I: 41, SU: 41 }, M = { SD: 103, GD: 62, V: 123, I: 61, SU: 61 };
+    $("#split").innerHTML = order.map(function (k) { return "<div style='width:" + CATS[k].share * 100 + "%;background:" + CATS[k].hex + "'>" + CATS[k].name + "</div>"; }).join("");
+    $("#splitTable tbody").innerHTML = order.map(function (k) { return "<tr><td><span style='display:inline-block;width:10px;height:10px;border-radius:2px;background:" + CATS[k].hex + ";margin-right:8px'></span>" + CATS[k].full + "</td><td class='num'>" + Math.round(CATS[k].share * 100) + "%</td><td class='num'>" + A[k] + "</td><td class='num'>" + M[k] + "</td></tr>"; }).join("") + "<tr><td><b>Total</b></td><td class='num'>100%</td><td class='num'><b>275</b></td><td class='num'><b>410</b></td></tr>";
+  })();
+
+  /* ---------- tickets + FAQ ---------- */
+  var TPL = [["Registration received", "On submit", "Act ID, next steps, helpdesk number"], ["ID needed", "No work email", "Upload link, 24-hour deadline"], ["Booking open", "5 Dec", "Booking link, closes 6 Dec 18:00"], ["Slot confirmed", "On booking", "Date, time, map pin, reporting time, QR"], ["Upload your track", "On booking", "Format, file name, 48 hours before"], ["Tomorrow’s audition", "24 h before", "Time, place, what to bring, ID"], ["See you soon", "2 h before", "Report 20 minutes early"], ["Thank you", "After the act", "Results on 18 Dec"], ["Missed your slot", "After a no-show", "One make-up slot, last day"], ["You’re a finalist", "18 Dec", "Confirm by 21 Dec; what we need next"], ["You’re a reserve", "18 Dec", "Stay available until 30 Dec"], ["Thank you for auditioning", "18 Dec", "Not selected this time; finale invite"]];
+  $("#tickets").innerHTML = TPL.map(function (t, i) { return "<div class='ticket'><b class='num'>" + (i + 1) + "</b><strong>" + t[0] + "</strong><em>" + t[1] + "</em><p>" + t[2] + "</p></div>"; }).join("");
+  var FAQ = [["Who can enter?", "Anyone working in the park, 18 or older, with a company ID."], ["Can I team up with another company?", "As per the team rule Mindspace decides in Phase 0."], ["Can I change my slot?", "Once, up to 24 hours before."], ["What music file?", "MP3 at 320 kbps or WAV, named with your act ID."], ["Do you provide instruments?", "Drum kit, keyboard, guitar and bass amps. Bring your own guitars, pedals and sticks."], ["Can colleagues watch?", "Yes, there is open space around the zone."], ["What if I’m late?", "You join the end of that window’s queue; no guarantee."], ["Any language allowed?", "Yes, within the content code."], ["Will I be filmed?", "Yes, every act is recorded under the release you ticked."]];
+  $("#faq").innerHTML = FAQ.map(function (q) { return "<details class='fold'><summary>" + q[0] + "</summary><p class='note' style='padding-bottom:14px'>" + q[1] + "</p></details>"; }).join("");
+
+  /* ---------- schedule ---------- */
+  var SCHED = {
+    airoli: [["Tue 8 Dec", [["SD", 36]], [["SD", 19], ["GD", 12]]], ["Wed 9 Dec", [["GD", 21]], [["SU", 33]]], ["Thu 10 Dec", [["V", 36]], [["V", 30]]], ["Fri 11 Dec", [["I", 22]], [["I", 11], ["MK", 0]]]],
+    madhapur: [["Tue 8 Dec", [["SD", 36]], [["SD", 36]]], ["Wed 9 Dec", [["SD", 10], ["GD", 18]], [["GD", 25]]], ["Thu 10 Dec", [["GD", 7], ["MK", 0]], [["SU", 30]]], ["Fri 11 Dec", [["V", 36]], [["V", 36]]], ["Mon 14 Dec", [["V", 26]], [["I", 22]]], ["Tue 15 Dec", [["I", 22]], [["I", 5], ["SU", 19], ["MK", 0]]]]
+  };
+  function renderSched(k) {
+    var s = $("#sched"); s.innerHTML = "<div class='s-head'><span>Day</span><span>Lunch 12:00–15:00</span><span>After work 17:00–20:00</span></div>";
+    SCHED[k].forEach(function (d) {
+      var row = el("div", { class: "s-day" }, "<span class='d'>" + d[0] + "</span>");
+      [d[1], d[2]].forEach(function (win) {
+        var w = el("div", { class: "s-win" }), used = 0;
+        win.forEach(function (seg) { if (seg[0] !== "MK") used += seg[1] * CATS[seg[0]].slot; });
+        win.forEach(function (seg) {
+          var c = CATS[seg[0]], mins = seg[0] === "MK" ? Math.max(0, 180 - used) : seg[1] * c.slot;
+          var part = el("div", { title: c.full + (seg[0] === "MK" ? "" : ": " + seg[1] + " acts, " + mins + " min") }, seg[0] === "MK" ? "Make-ups" : c.name + " " + seg[1]);
+          part.style.width = Math.min(100, mins / 180 * 100) + "%"; part.style.background = c.hex; if (seg[0] === "MK") part.style.color = "#F4F2EC";
+          w.appendChild(part);
+        });
+        if (used > 180) w.appendChild(el("span", { class: "over" }, "runs to 20:" + String(used - 180).padStart(2, "0")));
+        row.appendChild(w);
+      });
+      s.appendChild(row);
+    });
+  }
+  $("#schedLegend").innerHTML = ["SD", "GD", "V", "I", "SU", "MK"].map(function (k) { return "<span><i style='background:" + CATS[k].hex + "'></i>" + CATS[k].full + (k === "MK" ? "" : " (" + CATS[k].name + ")") + "</span>"; }).join("");
+  $$("#ground .seg button").forEach(function (b) { b.addEventListener("click", function () { pressGroup(b.parentNode, b); renderSched(b.dataset.sched); }); });
+  renderSched("airoli");
+
+  /* ---------- day line ---------- */
+  var DAY = [["10:30", "11:00", "Crew call", "Briefing, radios out.", "#6E6A7A"], ["11:00", "11:30", "Line check", "Playlist loaded in slot order from the track folder.", "#6E6A7A"], ["11:30", "11:45", "Judges brief", "Rubric, conflicts, 3 sample clips to calibrate.", "#8C7BFF"], ["11:45", "12:00", "Check-in", "QR scan and ID check open.", "#45C9F2"], ["12:00", "15:00", "Window A", "Lunch crowd. 3 hours, about 30–36 acts.", "#CFF23F"], ["15:00", "17:00", "Break and audit", "Judges’ lunch; score gaps fixed; footage handed to Phase 2.", "#6E6A7A"], ["17:00", "20:00", "Window B", "After-work crowd. 3 hours, about 30–36 acts.", "#CFF23F"], ["20:00", "20:30", "Lock", "Scores locked, daily audit, export, backup.", "#FF7FB0"]];
+  (function dayline() {
+    var d = $("#dayline"), t0 = 10.5, t1 = 20.5;
+    function x(t) { var p = t.split(":"); return ((+p[0] + p[1] / 60) - t0) / (t1 - t0) * 100; }
+    var h = "<div class='axis'></div>";
+    ["10:30", "12:00", "15:00", "17:00", "20:30"].forEach(function (t) { h += "<span class='dl-tick num' style='left:" + x(t) + "%'>" + t + "</span>"; });
+    d.innerHTML = h;
+    DAY.forEach(function (b, i) {
+      var w = x(b[1]) - x(b[0]);
+      var bt = el("button", { class: "dl-block", type: "button", "aria-label": b[0] + " to " + b[1] + ": " + b[2] }, w > 9 ? b[2] : "");
+      bt.style.left = x(b[0]) + "%"; bt.style.width = "calc(" + w + "% - 2px)"; bt.style.background = b[4]; if (b[4] === "#6E6A7A") bt.style.color = "#F4F2EC";
+      bt.addEventListener("click", function () { $("#dlDetail").innerHTML = "<b>" + b[0] + "–" + b[1] + " · " + b[2] + "</b>" + b[3]; });
+      d.appendChild(bt);
+    });
+    $("#dlDetail").innerHTML = "<b>Day before, 19:00–22:00 · Load-in</b>Rig, sound check, signage, Wi-Fi and tablet test, print backup sheets. Tap any block on the day line for its detail.";
+  })();
+
+  /* ---------- floor plan ---------- */
+  var ZONES = [
+    ["stage", 190, 24, 260, 92, "#CFF23F", "Stage riser", "24×16 ft riser, skirted, branded backdrop on truss. Countdown screen and amber cue light face the performer."],
+    ["wingL", 120, 24, 64, 92, "#E6E2D8", "Wings", "Act waits here two acts ahead. Stage manager confirms the track is cued."],
+    ["wingR", 456, 24, 64, 92, "#E6E2D8", "Exit wing", "Performers leave by the opposite side so the next act never crosses them."],
+    ["judges", 250, 180, 140, 46, "#8C7BFF", "Judges’ desk", "4–6 m from the stage edge, centred, nobody standing in its sightline. 3 tablets + 1 spare, backup paper sheets."],
+    ["camA", 300, 236, 40, 30, "#45C9F2", "Cam A", "Wide shot from behind the judges."],
+    ["camB", 530, 130, 54, 30, "#45C9F2", "Cam B", "Close shot from the side of the stage."],
+    ["crowd", 150, 300, 340, 80, "#F1EFEA", "Lunch crowd behind rope line", "Open standing space for colleagues. They are Phase 2’s buzz. Facility security holds the rope line."],
+    ["holding", 20, 140, 150, 110, "#FFB547", "Holding area", "60 chairs, 2 mirrors, water. Acts wait here after check-in."],
+    ["checkin", 20, 270, 110, 60, "#FF7FB0", "Check-in", "2 staff, QR scanner phones, printed act list, stickers, stanchions."],
+    ["queue", 20, 350, 110, 56, "#E6E2D8", "Queue in", "Signage and the rules board. Report 20 minutes early."],
+    ["exit", 540, 300, 80, 56, "#E6E2D8", "Exit", "Out to the campus. Thank-you message goes automatically."]
+  ];
+  (function plan() {
+    var s = $("#plan");
+    var h = "<defs><marker id='pa' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M0 0L10 5L0 10z' fill='#5B3FF2'/></marker></defs>";
+    h += "<path d='M75 350 V 336 M75 270 V 256 M95 140 V 70 H 116 M520 70 H 605 V 294' fill='none' stroke='#5B3FF2' stroke-width='3' stroke-dasharray='7 6' marker-end='url(#pa)'/>";
+    h += "<line x1='150' x2='490' y1='292' y2='292' stroke='#17161B' stroke-width='2' stroke-dasharray='2 5'/>";
+    ZONES.forEach(function (z) {
+      h += "<g class='z' data-z='" + z[0] + "' tabindex='0' role='button' aria-label='" + z[6] + "'><rect x='" + z[1] + "' y='" + z[2] + "' width='" + z[3] + "' height='" + z[4] + "' rx='4' fill='" + z[5] + "' stroke='#17161B' stroke-width='1.5'/><text x='" + (z[1] + z[3] / 2) + "' y='" + (z[2] + z[4] / 2 + 5) + "' text-anchor='middle' fill='#17161B' font-size='" + (z[3] < 70 ? 12 : 14) + "' font-weight='700'>" + z[6] + "</text></g>";
+    });
+    h += "<text x='490' y='420' text-anchor='end' fill='#55525F' font-size='12'>Dashed arrows: one-way performer flow</text>";
+    s.innerHTML = h;
+    function pick(id) { $$(".z", s).forEach(function (g) { g.classList.toggle("sel", g.dataset.z === id); }); var z = ZONES.filter(function (q) { return q[0] === id; })[0]; $("#planNote").innerHTML = "<b>" + z[6] + ".</b> " + z[7]; }
+    $$(".z", s).forEach(function (g) { g.addEventListener("click", function () { pick(g.dataset.z); }); g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(g.dataset.z); } }); });
+    pick("judges");
+  })();
+
+  /* ---------- rubric calculator ---------- */
+  (function calc() {
+    var cats = $("#calcCats"), sl = $("#sliders"), cur = "SD", vals = {};
+    ["SD", "GD", "V", "I", "SU"].forEach(function (k) {
+      var b = el("button", { type: "button", "aria-pressed": k === cur ? "true" : "false" }, CATS[k].name);
+      b.style.borderColor = CATS[k].hex;
+      b.addEventListener("click", function () { cur = k; pressGroup(cats, b); $$("button", cats).forEach(function (x) { x.style.background = x.getAttribute("aria-pressed") === "true" ? x.style.borderColor : "transparent"; }); build(); });
+      cats.appendChild(b);
+    });
+    $$("button", cats).forEach(function (x) { x.style.background = x.getAttribute("aria-pressed") === "true" ? x.style.borderColor : "transparent"; });
+    function build() {
+      sl.innerHTML = "";
+      CATS[cur].w.forEach(function (w, i) {
+        var id = "r-" + cur + "-" + i, v = vals[id] || 7;
+        var d = el("div", { class: "slider" }, "<label for='" + id + "'>" + w[0] + " <small>· weight " + w[1] + "</small></label><output for='" + id + "' class='num'>" + v + "/10</output><input type='range' id='" + id + "' min='1' max='10' step='1' value='" + v + "'>");
+        $("input", d).addEventListener("input", function (e) { vals[id] = +e.target.value; $("output", d).textContent = e.target.value + "/10"; total(); });
+        sl.appendChild(d);
+      });
+      total();
+    }
+    function total() { var t = 0; CATS[cur].w.forEach(function (w, i) { t += (vals["r-" + cur + "-" + i] || 7) * w[1] / 10; }); $("#scoreOut").textContent = Math.round(t); }
+    build();
+  })();
+
+  /* ---------- bridge ---------- */
+  var BR = [["Fri 18 Dec", "Results sent; coordinators phone every finalist lead by 19 Dec."], ["21–23 Dec", "Phase 2 shoots finalist stories, one day per park."], ["Mon 21 Dec", "Finalists confirm availability and final members by 18:00."], ["Tue 22 Dec", "Unconfirmed finalists replaced by the first reserve."], ["Thu 24 Dec", "Finalist and reserve packs due."], ["Mon 28 Dec", "Rehearsal slots from the vendor’s draft sent to finalists."], ["Wed 30 Dec", "Hand-over meeting; pack signed by the vendor and Mindspace."]];
+  $("#bridgeTl").innerHTML = BR.map(function (b) { return "<li><b>" + b[0] + "</b><span>" + b[1] + "</span></li>"; }).join("");
+  var HO = [["Finalist roster", "Act ID, category, act name, members, company, lead contact, status."], ["One folder per act", "Track, cue sheet, tech sheet, props, contacts, bio and photo."], ["Reserves", "Two per category with complete folders, ready to step in."], ["Rehearsal draft", "20 minutes per act on the day before the finale, in run-of-show order."], ["Judging kit", "Audition panel contacts, rubric, sign-off format."], ["Office Cup standings", "Points after auditions, for the finale leaderboard."], ["Open issues", "Special needs, extra mics, access requirements, agreed exceptions."], ["Comms hand-off", "The vendor’s stage manager takes over on the same WhatsApp number."]];
+  $("#handover").innerHTML = HO.map(function (h, i) { return "<div style='border-top:2px solid var(--ink);padding-top:12px'><b style='font-family:var(--f-display);font-weight:400;font-size:22px;text-transform:uppercase'>" + (i + 1) + ". " + h[0] + "</b><p style='font-size:15px;color:var(--ink-dim);margin-top:4px'>" + h[1] + "</p></div>"; }).join("");
+
+  /* ---------- buzz ---------- */
+  var BEATS = [["Tease", "18–24 Nov", "“Remember the college fest?” posters with no details; a throwback-photo prompt."], ["Launch", "25 Nov–4 Dec", "Launch push, daily Office Cup board, champion kits, category pushes, food-court sign-up desks."], ["Auditions", "8–15 Dec", "Same-day reels from the zone, an act of the day, live Office Cup points."], ["Finale", "18 Dec–13 Jan", "Finalist reveal and stories, headliner reveal, company wristband sign-ups, countdown."], ["After", "14 Jan–Feb", "Winner stories, aftermovie, photo albums, a tease for MGT ’28."]];
+  $("#beats").innerHTML = BEATS.map(function (b) { return "<div><span class='when'>" + b[1] + "</span><h4>" + b[0] + "</h4><p>" + b[2] + "</p></div>"; }).join("");
+  var CH = [["Campus digital screens", "Office Cup board, countdowns, audition reels", "Daily"], ["Lift doors, standees, food-court hangings", "Launch, then finalists and finale", "Two changeovers"], ["Emails to tenant HR and admin", "8 emailers, tease to aftermovie", "About weekly"], ["Office champion WhatsApp groups", "Posters, daily counts, nudges", "Daily in the window"], ["LinkedIn", "Company pride: tag companies and entrants; leaders post", "3–4 a week"], ["Instagram", "Reels, throwbacks, act of the day, finalist stories", "Daily from 25 Nov"], ["Paid social, geo-targeted to each park", "Reels-first bursts", "Launch and finale"]];
+  $("#channels tbody").innerHTML = CH.map(function (c) { return "<tr><td>" + c[0] + "</td><td>" + c[1] + "</td><td>" + c[2] + "</td></tr>"; }).join("");
+  var ID = [["“My college fest” throwbacks", "Employees post an old fest photo; the best get reshared."], ["Desk to Stage", "Short finalist profiles: day job versus talent."], ["Office Cup standings", "Daily rivalry posts naming the top companies."], ["Judges’ pick", "One standout audition moment a day."], ["Leaders’ cheer", "Tenant leaders back their teams on video."], ["Rehearsal diaries", "Crews practising in their offices before the finale."]];
+  $("#ideas").innerHTML = ID.map(function (i) { return "<div class='idea'><b>" + i[0] + "</b><p>" + i[1] + "</p></div>"; }).join("");
+
+  /* ---------- vendor ---------- */
+  var SC = [["Comparable shows", 25, "Two or more 5,000+ concerts in 24 months; two reference calls"], ["Safety and permissions", 20, "Sample safety plan; permits in Navi Mumbai and Cyberabad"], ["Headline act access", 15, "Written availability holds for 7 and 13 Jan"], ["Production quality", 15, "3D renders; equipment list with makes and models"], ["BOQ transparency", 15, "Line-by-line per campus, GST separate"], ["Team", 10, "Named manager per city; the show caller’s past shows"]];
+  $("#scorecard").innerHTML = SC.map(function (s) { return "<div class='wbar'><div>" + s[0] + "<small>" + s[2] + "</small></div><div class='track'><div style='width:" + (s[1] / 25 * 100) + "%'></div></div><b class='num' style='text-align:right'>" + s[1] + "%</b></div>"; }).join("");
+  var GT = [["27 Nov", "Vendor appointed"], ["4 Dec", "Artist contract signed"], ["11 Dec", "Renders, site and safety plans approved"], ["18 Dec", "All permits filed"], ["30 Dec", "Hand-over pack signed"], ["4 & 10 Jan", "Builds start"], ["7 & 13 Jan", "Shows"], ["22 Jan", "Report delivered"]];
+  $("#gates").innerHTML = GT.map(function (g) { return "<div class='gate'><b>" + g[0] + "</b><span>" + g[1] + "</span></div>"; }).join("");
+
+  /* ---------- risks ---------- */
+  var RK = [["Slow registrations", "Below 60% of pace on 1 Dec", "Extend to 6 Dec; staffed sign-up desks in food courts; champion push.", "Phase 1"], ["One category too thin", "Under 50% of target on 1 Dec", "Phase 2 category push; Mindspace may accept 3 finalists there.", "Phase 1"], ["Too many registrations", "Over 115% of capacity", "Open the second room, or a 60-second video pre-screen.", "Phase 1"], ["Templates or number not approved", "Not approved by 20 Nov", "Email and SMS fallback; resubmit.", "Phase 1"], ["Verification backlog", "Over 50 pending", "Add a temporary checker.", "Phase 1"], ["Judge drops out", "Any cancellation", "Standby judge who has attended calibration from day one.", "Phase 1"], ["Tablet or Wi-Fi failure", "During a window", "Paper sheets; mobile hotspot; typed in the same evening.", "Phase 1"], ["Space or hours refused", "At the recce", "Backup zone agreed at the same recce.", "Phase 1"], ["Lunch crowd blocks the flow", "Crowd past the rope line", "Facility security; move to the indoor backup.", "Phase 1"], ["Finalist drops after 24 Dec", "Any withdrawal", "A reserve with a complete pack steps in.", "Phase 1"], ["Data mishandled", "A sheet on a personal device", "Role-based access only; no downloads outside the system.", "Phase 1"], ["Award slips past 20 Nov", "No go decision", "Move auditions to 10–17 Dec; the 30 Dec hand-over holds.", "Cross-phase"], ["Phase 2 under-staffed", "Registrations behind pace", "An agency for paid media only; staffed desks.", "Cross-phase"], ["Vendor appointed late", "Not signed by 27 Nov", "Mindspace enforces the 27 Nov and 18 Dec gates.", "Cross-phase"], ["Gaps in the hand-over pack", "Folders incomplete on 29 Dec", "Completeness check on 29 Dec; vendor manager observes from 18 Dec.", "Cross-phase"]];
+  $("#riskList").innerHTML = RK.map(function (r) { return "<div class='risk'><span class='tag'>" + r[3] + "</span><h4>" + r[0] + "</h4><span class='sign'>Early sign: " + r[1] + "</span><p>" + r[2] + "</p></div>"; }).join("");
+
+  /* ---------- checklists ---------- */
+  var KIT = ["Stage riser 24×16 ft, skirted; branded backdrop on truss; 2 wing flats", "Judges’ desk, 3 chairs, 3 tablets + 1 spare, chargers, power strips, backup score sheets", "PA: 2 tops, 2 subs, 16-channel mixer, 2 wedges", "6 wireless mics (2 headsets), spare batteries, 6 stands, 1 stool", "Playback laptop + backup laptop, audio interface, 6 DI boxes, tracks on a USB stick", "Backline: drum kit with throne and cymbals, keyboard with stand, 2 guitar amps, 1 bass amp", "Lights: 8 LED pars, 4 moving heads, 2 profiles", "Countdown screen facing the stage; amber cue light", "2 cameras with tripods, 1 gimbal, audio recorder, 2 TB drive + cloud upload", "Check-in: 2 phones with the scanner, printed act list, stickers, stanchions", "Holding area: 60 chairs, 2 mirrors, water dispenser, cups, bins", "Signage: 6 direction signs, rules board, QR standee", "Safety: first-aid kit, extinguisher position agreed, cable mats, gaffer tape", "6 radios; standby silent generator; rain cover if outdoors"];
+  var PACK = ["Final track: WAV or 320 kbps MP3, trimmed, named ActID_Title, plus a backup", "Cue sheet: start position, lighting mood, end cue", "Tech sheet: mics, headsets, instruments, backline; stage plot for bands", "Props and costume list checked against the content code", "Final member names and companies", "Emergency contact for every member", "Photo, 50-word bio and one fun fact", "How to pronounce every name", "Finale release for stage recording, screens and aftermovie", "Optional: time-off letter template for their HR"];
+  var WEEKS = [
+    ["now0", "5–6 Nov", "2026-11-05", "2026-11-08", ["Share the phase plan with Mindspace; confirm owners for Phases 2 and 3", "Ask for the tenant company list with email domains, facility contacts and recce dates", "Start WhatsApp business verification with a provider", "Brief 3 backend builders; ask for a demo and a quote", "Ask 2 AV vendors per city to quote the kit list"]],
+    ["w1", "9–13 Nov", "2026-11-09", "2026-11-15", ["Draft rules, FAQ and consent text; send to Mindspace legal", "Approach judges: 9 per park plus 1 standby", "Check that Mindspace has issued the Phase 3 vendor brief"]],
+    ["w2", "16–20 Nov", "2026-11-16", "2026-11-22", ["Hire the backend builder; build starts", "Recce both parks: zone, power, Wi-Fi, load-in, storage, washrooms, crew passes", "Submit the 12 message templates for approval", "Book AV vendors and recording crews; pencil judges for every window", "Hire the two helpdesk executives"]],
+    ["lock", "Lock by 24 Nov", "2026-11-16", "2026-11-24", ["Eligibility: who counts as working in the park; proof required", "Team rule: one company per crew, or mixed without Cup points", "Entry limits: 2 categories per person, 1 act per category", "Category rules, time limits and scoring weights", "Content code", "Audition zone and hours per park, with power and evening load-in", "Judges confirmed: 9 per park plus standby", "Consent text approved by Mindspace legal", "Purchase route for AV, judges, backend and helpdesk", "Prizes and recognition confirmed"]],
+    ["w3", "23–27 Nov", "2026-11-23", "2026-11-29", ["23 Nov: rules, consent and Office Cup points approved; brand kit received", "24 Nov: soft launch with 20 test registrations; fix issues", "25 Nov 09:00: go live", "Daily 18:00 snapshot to Mindspace, Phase 2 and champions", "Judges’ contracts and brief pack sent"]],
+    ["w4", "30 Nov–4 Dec", "2026-11-30", "2026-12-06", ["1 Dec: health check; trigger category pushes below 50%", "2 Dec: final kit confirmed; signage printed", "3 Dec: test scoring form and check-in scanner end to end", "4 Dec 20:00: close registrations; build the day plan; lock judge windows"]],
+    ["w5", "5–11 Dec", "2026-12-05", "2026-12-13", ["5–6 Dec: slot booking; auto-assign the rest at 18:00 on 6 Dec", "7 Dec evening: load-in at both parks", "8–11 Dec: auditions; nightly score lock, audit, backup; footage to Phase 2", "11 Dec: Airoli East make-ups; Airoli auditions close"]],
+    ["w6", "14–18 Dec", "2026-12-14", "2026-12-20", ["14–15 Dec: Madhapur auditions finish; make-ups 15 Dec", "16–17 Dec: review calls; sign-off sheets signed", "18 Dec: personal results 10:00, public 12:00; appeals open to 20 Dec 12:00"]],
+    ["w7", "21–24 Dec", "2026-12-21", "2026-12-27", ["21 Dec: confirmations close; 22 Dec: reserves promoted", "21–23 Dec: finalist story shoots with Phase 2", "24 Dec: packs due; chase anything missing the same day"]],
+    ["w8", "28–30 Dec", "2026-12-28", "2027-01-03", ["28 Dec: rehearsal slots sent", "29 Dec: check every folder is complete", "30 Dec: hand-over meeting; pack signed"]],
+    ["ask", "Ask Mindspace", "2026-11-05", "2026-11-27", ["Confirm phase owners and that your remit ends at the 30 Dec hand-over", "Award date (assumed 20 Nov) and a 25 Nov opening", "Optional rule: at most 2 finalist acts per company per category", "Phase 3 vendor by 27 Nov and a Mindspace show lead", "Finale dates: Thu 7 Jan Madhapur, Wed 13 Jan Airoli East", "Who in legal signs the consent text"]],
+    ["p4", "Phase 4", "2027-01-14", "2027-04-13", ["By 15 Jan: registration and audition numbers to the report", "By 13 Apr: delete participant data and confirm in writing"]]
+  ];
+  var KEY = "mgt27-ticks", ticks = store(KEY) || {};
+  function save() { store(KEY, ticks); }
+  function checkItem(listId, idx, text) {
+    var id = "c-" + listId + "-" + idx;
+    var li = el("li", null, "<label for='" + id + "'><input type='checkbox' id='" + id + "'" + (ticks[id] ? " checked" : "") + "><span>" + text + "</span></label>");
+    $("input", li).addEventListener("change", function (e) { ticks[id] = e.target.checked; save(); updateRing(); });
+    return li;
+  }
+  KIT.forEach(function (t, i) { $("#kit").appendChild(checkItem("kit", i, t)); });
+  PACK.forEach(function (t, i) { $("#pack").appendChild(checkItem("pack", i, t)); });
+  var today = Date.now();
+  (function weeks() {
+    var w = $("#weeks"), nowSet = false;
+    WEEKS.forEach(function (wk) {
+      var isNow = today >= Date.parse(wk[2]) && today <= Date.parse(wk[3]) + 864e5;
+      if (!nowSet && wk[0] !== "lock" && wk[0] !== "ask" && today < Date.parse(wk[3]) + 864e5) { isNow = true; nowSet = true; }
+      else if (wk[0] !== "lock" && wk[0] !== "ask") isNow = false;
+      var card = el("section", { class: "week" + (isNow ? " now" : ""), "data-now": isNow ? "1" : "0", "aria-label": wk[1] });
+      card.innerHTML = "<header><h4>" + wk[1] + (isNow && wk[0] !== "lock" && wk[0] !== "ask" ? "<span class='badge'>Now</span>" : "") + "</h4><span class='cnt num'></span></header><div class='mini'><div></div></div>";
+      var ul = el("ul", { class: "checks" });
+      wk[4].forEach(function (t, i) { ul.appendChild(checkItem(wk[0], i, t)); });
+      card.appendChild(ul); w.appendChild(card);
+    });
+    updateRing();
+  })();
+  function updateRing() {
+    var all = $$("#weeks input[type=checkbox]"), done = all.filter(function (c) { return c.checked; }).length;
+    var p = all.length ? done / all.length : 0;
+    $("#ringArc").setAttribute("stroke-dashoffset", (213.6 * (1 - p)).toFixed(1));
+    $("#ringPct").textContent = Math.round(p * 100) + "%";
+    $("#ringTxt").textContent = done + " of " + all.length + " done";
+    $$("#weeks .week").forEach(function (c) { var cb = $$("input", c), d = cb.filter(function (x) { return x.checked; }).length; $(".cnt", c).textContent = d + "/" + cb.length; $(".mini div", c).style.width = (cb.length ? d / cb.length * 100 : 0) + "%"; c.dataset.open = d < cb.length ? "1" : "0"; });
+    applyFilter();
+  }
+  var filt = "all";
+  function applyFilter() { $$("#weeks .week").forEach(function (c) { var hide = (filt === "open" && c.dataset.open === "0") || (filt === "now" && c.dataset.now !== "1"); c.classList.toggle("hidden", hide); }); }
+  $$("#mylist .seg button").forEach(function (b) { b.addEventListener("click", function () { pressGroup(b.parentNode, b); filt = b.dataset.f; applyFilter(); }); });
+  var resetArmed = false;
+  $("#resetBtn").addEventListener("click", function (e) {
+    if (!resetArmed) { resetArmed = true; e.target.textContent = "Tap again to clear all ticks"; setTimeout(function () { resetArmed = false; e.target.textContent = "Clear ticks"; }, 3500); return; }
+    ticks = {}; save(); $$("input[type=checkbox]").forEach(function (c) { c.checked = false; }); resetArmed = false; e.target.textContent = "Clear ticks"; updateRing();
+  });
+
+  /* ---------- altimeter + hero zoom ---------- */
+  var secs = ["top", "phases", "handoffs", "engine", "backend", "window", "ground", "judging", "bridge", "buzz", "finale", "mylist"].map(function (id) { return document.getElementById(id); });
+  var railLinks = $$("#alt a"), topLinks = $$("#topbar a"), map = $("#map");
+  function onScroll() {
+    var y = window.scrollY, H = document.documentElement.scrollHeight - window.innerHeight, p = H > 0 ? y / H : 0;
+    $("#altFill").style.height = (p * 100) + "%"; $("#topFill").style.width = (p * 100) + "%";
+    var cur = 0; secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < window.innerHeight * .4) cur = i; });
+    railLinks.forEach(function (a, i) { a.classList.toggle("on", i === cur); });
+    topLinks.forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + secs[cur].id); });
+    if (!RM && map) { var hz = Math.min(1, y / 700); map.style.transform = "scale(" + (1 + hz * .35) + ")"; map.style.opacity = String(1 - hz * .6); }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
