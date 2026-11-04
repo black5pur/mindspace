@@ -1,7 +1,9 @@
-# MGT ’27 Field Plan
+# MGT ’27 Execution Plan · BRENSH
 
-Interactive field plan for Mindspace Got Talent ’27: phases, the participant journey, audition-day operations, judging, the finalist hand-over and a week-by-week to-do list.
+BRENSH’s execution plan for Mindspace Got Talent ’27 at Mindspace Airoli East (Mumbai) and Mindspace Madhapur (Hyderabad), prepared for Mindspace Business Parks REIT stakeholders.
 
-Open `index.html` in a browser, or enable GitHub Pages (Settings → Pages → Deploy from branch → `main` / root) to serve it.
+The page covers the five phases and who owns each, BRENSH’s participant journey from registration to signed finalists, audition-day operations, judging, the finalist hand-over to the event partner, the recommended campaign plan, and a week-by-week delivery plan with the decisions needed from Mindspace.
 
-Financials and vendor names are kept out of this page by design.
+Open `index.html` in a browser, or enable GitHub Pages (Settings → Pages → Deploy from a branch → `main` / root).
+
+Commercials are shared separately.
